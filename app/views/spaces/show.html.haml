@@ -1,32 +1,23 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @space.title
-%p
-  %b Name:
-  = @space.name
-%p
-  %b Description:
-  = @space.description
-%p
-  %b Published:
-  = @space.published
-%p
-  %b Content:
-  = @space.content
-%p
-  %b Avatar:
+.col-md-12
+  %p#notice= notice
+  %h1=@space.title
+.col-md-6.col-sm-12
   = @space.avatar
-%p
-  %b Lat:
-  = @space.lat
-%p
-  %b Long:
-  = @space.long
-%p
-  %b Local:
-  = @space.local
+.col-md-6.col-sm-12
+  %p
+    = @space.description
+.col-md-12
+  .relative-content
+    = @space.content
+.col-md-12
+  %h2 Location
+  %h3 = @space.local
+  %p
+    %b Lat:
+    = @space.lat
+  %p
+    %b Long:
+    = @space.long
 
 = link_to 'Edit', edit_space_path(@space)
 \|
