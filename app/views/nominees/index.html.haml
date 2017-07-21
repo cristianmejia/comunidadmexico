@@ -1,0 +1,31 @@
+%h1 Listing nominees
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Avatar
+      %th Poll
+      %th Published
+      %th Description
+      %th Popular vote
+      %th
+      %th
+      %th
+
+  %tbody
+    - @nominees.each do |nominee|
+      %tr
+        %td= nominee.title
+        %td= nominee.avatar
+        %td= nominee.poll
+        %td= nominee.published
+        %td= nominee.description
+        %td= nominee.popular_vote
+        %td= link_to 'Show', nominee
+        %td= link_to 'Edit', edit_nominee_path(nominee)
+        %td= link_to 'Destroy', nominee, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Nominee', new_nominee_path

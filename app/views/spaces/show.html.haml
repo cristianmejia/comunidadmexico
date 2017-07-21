@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @space.title
+%p
+  %b Name:
+  = @space.name
+%p
+  %b Description:
+  = @space.description
+%p
+  %b Published:
+  = @space.published
+%p
+  %b Content:
+  = @space.content
+%p
+  %b Avatar:
+  = @space.avatar
+%p
+  %b Lat:
+  = @space.lat
+%p
+  %b Long:
+  = @space.long
+%p
+  %b Local:
+  = @space.local
+
+= link_to 'Edit', edit_space_path(@space)
+\|
+= link_to 'Back', spaces_path

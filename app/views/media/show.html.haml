@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @medium.title
+%p
+  %b Name:
+  = @medium.name
+%p
+  %b Description:
+  = @medium.description
+%p
+  %b Author:
+  = @medium.author
+%p
+  %b Url:
+  = @medium.url
+%p
+  %b Space:
+  = @medium.space
+
+= link_to 'Edit', edit_medium_path(@medium)
+\|
+= link_to 'Back', media_path
