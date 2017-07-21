@@ -50,11 +50,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'sqlite3'
-  gem 'pg'
   gem 'thin'
 end
 group :production do
   gem 'passenger'
+  gem 'pg'
 end
 group :test do
   gem 'database_cleaner'
