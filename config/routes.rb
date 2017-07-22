@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :nominees
   resources :polls
   resources :media
@@ -21,8 +21,5 @@ Rails.application.routes.draw do
     resources :media, :defaults => { :format => 'html' }
   end
   root to: 'visitors#index'
-  get '/auth/:provider/callback' => 'sessions#create'
-  get '/signin' => 'sessions#new', :as => :signin
-  get '/signout' => 'sessions#destroy', :as => :signout
-  get '/auth/failure' => 'sessions#failure'
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 end
