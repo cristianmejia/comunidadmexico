@@ -1,0 +1,44 @@
+html {
+	background-color: $color-secondary-2-1;
+}
+body {
+	min-height: 600px;
+	padding-top: 50px;
+	background-color: transparent;
+	color: $color-primary-4;
+	font-size: 13px;
+	line-height: 18px;
+}
+.mainyield.container{
+	background:rgba(255,255,255,0.6);
+	border-radius: 6px;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+.covercontainer {
+	min-height:100px;
+	position: relative;
+	.covercontent {
+		position: absolute;
+		padding: 18px 0;
+		width: 100%;
+		.covertitle {
+			padding-left: 16px;
+			display: inline-block;
+			h1, p {color: white;}
+		}
+		.coveravatar {
+			display: inline-block;
+			max-width: 200px;
+			max-height: 200px;
+		}
+	}
+}
+.paragraph {
+	white-space: pre-wrap;
+	&.left{text-align: left;}
+	&.right{text-align: right;}
+	&.center{text-align: center;}
+}
