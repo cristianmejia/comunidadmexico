@@ -1,22 +1,26 @@
 .col-md-12
-  %h1 Comunidad M&eacute;xico
-  %p Puedes encontrar respuestas y hacer preguntas conectándote con la comunidad M&eacute;xico	
+  %h1 = I18n.t(:title)
+  %p = I18n.t(:description)	
+  %h2 Busca en la comunidad
   %h3 Featured Spaces
   %ul
-    - @topSpaces.each do |s|
-      %li=link_to image_tag(s.avatar, :alt => s.description), s.url.to_s, :title => s.title		
+    - if @topSpaces then 
+      - @topSpaces.each do |s|
+        %li=link_to image_tag(s.avatar, :alt => s.description), s.url.to_s, :title => s.title		
   %h3 Lists Spaces
   %ul
-    - @allSpaces.each do |s|
-      %li=link_to image_tag(s.avatar, :alt => s.description), s.url.to_s, :title => s.title
+    - if  @allSpaces
+      - @allSpaces.each do |s|
+        %li=link_to image_tag(s.avatar, :alt => s.description), s.url.to_s, :title => s.title
   %h3 Top Polls
   %ol
   %h3 Popular Nominees
   %ol
   %h3 Top Users
   %ol
-    - @topUsers.each do |u|
-      %li=link_to u.name u.uid
+    - if @topUsers
+      - @topUsers.each do |u|
+        %li=link_to u.name u.uid
   %p
     = link_to 'Users:', users_path 
     = User.count

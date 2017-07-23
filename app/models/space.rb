@@ -5,7 +5,7 @@ class Space < ApplicationRecord
 	has_many :media, :dependent => :destroy
 	ratyrate_rateable "trustworthy", "popular", "freshines"
 	scope :published, -> {where(:published => true)}
-	mount_uploader :url, AvatarUploader
+	mount_uploader :url, FileUploader
 	acts_as_votable
 	is_impressionable
 	reverse_geocoded_by :latitude, :longitude, :address => :location

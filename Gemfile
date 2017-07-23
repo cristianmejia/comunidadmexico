@@ -54,7 +54,7 @@ gem 'mailgun_rails'
 gem 'tinymce-rails'
 gem 'geocoder'
 gem 'Bootstrap-Image-Gallery-rails'
-
+gem 'rails-i18n'
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
