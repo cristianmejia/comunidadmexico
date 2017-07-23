@@ -2,6 +2,7 @@
   %h1 = I18n.t(:title)
   %p = I18n.t(:description)	
   %h2 Busca en la comunidad
+  =render 'layouts/search_widget'
   %h3 Featured Spaces
   %ul
     - if @topSpaces then 
