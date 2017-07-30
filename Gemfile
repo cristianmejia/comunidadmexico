@@ -55,6 +55,7 @@ gem 'tinymce-rails'
 gem 'geocoder'
 gem 'Bootstrap-Image-Gallery-rails'
 gem 'rails-i18n'
+gem 'metainspector'
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
