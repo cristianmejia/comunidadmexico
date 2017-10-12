@@ -2,13 +2,11 @@
   .container
     .navbar-header
       %button.navbar-toggler{:type => "button", :aria => {:expanded => "false", :controls => "navbar"}, :data => {:toggle => "collapse", :target => "#navbar"}}
-        %span.sr-only Toggle navigation
-        - 3.times do
-          %span.icon-bar
+        %span.navbar-toggler-icon
       = link_to root_path, class: 'navbar-brand' do
         Comunidad M&eacute;xico
     #navbar.navbar-collapse.collapse
-      %ul.nav.navbar-nav
+      %ul.mr-auto.navbar-nav
         = render 'layouts/navigation_links'
-      %ul.nav.navbar-nav.navbar-right
+      %ul.mr-auto.navbar-nav
         = render 'layouts/nav_links_for_auth'
