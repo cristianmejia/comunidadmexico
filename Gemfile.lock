@@ -535,6 +535,7 @@ DEPENDENCIES
   omniauth-twitter
   passenger
   pg
+  popper_js (~> 1.11, >= 1.11.1)
   pry-rails
   pry-rescue
   puma (~> 3.7)

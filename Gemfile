@@ -53,6 +53,7 @@ gem 'mailgun_rails'
 gem 'tinymce-rails'
 gem 'geocoder'
 gem 'Bootstrap-Image-Gallery-rails'
+gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem 'rails-i18n'
 gem 'metainspector'
 group :development do
