@@ -274,11 +274,11 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  Devise.mailchimp_api_key = 'acf1305804ed35a098d5f00b44f13fb8-us14'
+  Devise.mailchimp_api_key = ENV["MAILCHIMP_API_KEY"]
   Devise.mailing_list_name = 'website'
   Devise.double_opt_in = false  
   Devise.send_welcome_email = false
-  config.omniauth :facebook, "441626786226209", "9676958c4fa9ca6c50e21585da30d386", callback_url: "http://t0p.space/users/auth/facebook/callback"
-  config.omniauth :twitter, "YGmwsinO7hNH1j6ij8hLz2AhQ", "3wqI1vzA5ZicCV1wFMfAC0WDTUETVhCxzqwRjAroRCa0BTF2BA"
-  config.omniauth :linkedin, "86p332nvlfgl6a", "3qhT6OBL5F3ZHVr6"
+  config.omniauth :facebook, ENV["OMNIAUTH_FB_ID"], ENV["OMNIAUTH_FB_KEY"], callback_url: ENV["OMNIAUTH_FB_CALLBACK"]
+  config.omniauth :twitter, ENV["OMNIAUTH_TW_ID"], ENV["OMNIAUTH_TW_KEY"]
+  config.omniauth :linkedin, ENV["OMNIAUTH_LI_ID"], ENV["OMNIAUTH_LI_KEY"]
 end
