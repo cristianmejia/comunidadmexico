@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :nominee do
     title "MyString"
     avatar "MyString"
