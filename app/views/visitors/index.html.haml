@@ -11,18 +11,18 @@
   %h3=I18n.t(:spaces)
   %ul
     - if  @allSpaces
-      - @allSpaces.each do |s|
-        %li=link_to image_tag(s.avatar, :alt => s.description), s.url.to_s, :title => s.title
+      - @allSpaces.each do |a|
+        %li=link_to image_tag(a.avatar, :alt => a.description), a.url.to_s, :title => a.title
   %h3=I18n.t(:top_polls)
   %ol
     - if @topPolls
-      - @topNominees.each do |u|
-        %li=link_to u.name u.uid
+      - @topNominees.each do |p|
+        %li=link_to p.name p.uid
   %h3=I18n.t(:top_nominees)
   %ol
     - if @topNominees
-      - @topNominees.each do |u|
-        %li=link_to u.name u.uid
+      - @topNominees.each do |n|
+        %li=link_to n.name n.uid
   %h3=I18n.t(:top_users)
   %ol
     - if @topUsers
