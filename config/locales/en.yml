@@ -30,6 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  title: "TItle"
-  description: "description"
+  hello: Hello world
+  title: Title
+  description: Description
+  spaces: Spaces
+  top_polls: Top Polls
+  top_nominees: Top Nominees
+  top_users: Top Users
+  top_spaces: Top Spaces
+  frequent_asked_questions: Frequent asked questions
+  how_to_participate: How to participate?
+  how_to_earn_badges: How to earn badges?
+  what_is_a_poll: What is a poll?
+  what_is_a_space: What is a space?
+  search_in_the_community: Search in the community
