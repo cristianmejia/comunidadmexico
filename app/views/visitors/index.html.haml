@@ -8,7 +8,7 @@
     - if @topSpaces then 
       - @topSpaces.each do |s|
         %li=link_to image_tag(s.avatar, :alt => s.description), s.url.to_s, :title => s.title		
-  %h3 Espacios
+  %h3=I18n.t(:spaces)
   %ul
     - if  @allSpaces
       - @allSpaces.each do |s|
