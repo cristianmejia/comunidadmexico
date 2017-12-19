@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
   resources :spaces
-  resources :users
-  resources :spaces, :path => '/@' do
+  resources :users, :path => '/@' do
+  resources :spaces
     member do
       put "like", to:    "spaces#upvote"
       put "dislike", to: "spaces#downvote"
