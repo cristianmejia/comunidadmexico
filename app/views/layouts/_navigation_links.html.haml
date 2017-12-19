@@ -1,4 +1,4 @@
-%li.nav-item= link_to 'Home', '/', :class => "nav-link"
-%li.nav-item= link_to 'Spaces', '/spaces', :class => "nav-link"
-%li.nav-item= link_to 'Users', '/users', :class => "nav-link"
-%li.nav-item= link_to 'Sign in', '/signin', :class => "nav-link"
+%li.nav-item= link_to I18n.t(:home), '/', :class => "nav-link"
+%li.nav-item= link_to I18n.t(:spaces), spaces_path, :class => "nav-link"
+%li.nav-item= link_to I18n.t(:users), users_path, :class => "nav-link"
+%li.nav-item= link_to I18n.t(:sign_in), new_user_session_path, :class => "nav-link"

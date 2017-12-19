@@ -1,4 +1,5 @@
 es:
+  home: Inicio
   title: Comunidad México
   description: Puedes encontrar respuestas y hacer preguntas, y cuando respondas a las preguntas de otros miembros de la comunidad podrás ganar puntos conectándote con la comunidad México
   spaces: Espacios
@@ -12,3 +13,7 @@ es:
   what_is_a_poll: Qué son las enquestas?
   what_is_a_space: Qué son los espacios?
   search_in_the_community: Busca en la comunidad
+  sign_in:  Inicio de sesión
+  sign_up: Registro
+  users: Usuarios
+  
