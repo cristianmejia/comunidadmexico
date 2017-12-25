@@ -1,25 +1,79 @@
 
+/*
+// RGB Verde https://coolors.co/app/cffcff-aaefdf-9ee37d-63c132-358600 
+$color1: rgba(207, 252, 255, 1);
+$color2: rgba(170, 239, 223, 1);
+$color3: rgba(158, 227, 125, 1);
+$color4: rgba(99, 193, 50, 1);
+$color5: rgba(53, 134, 0, 1);
+
+// RGB  Azul https://coolors.co/ffffff-00171f-003459-007ea7-00a8e8  
+$color1: rgba(255, 255, 255, 1);
+$color2: rgba(0, 23, 31, 1);
+$color3: rgba(0, 52, 89, 1);
+$color4: rgba(0, 126, 167, 1);
+$color5: rgba(0, 168, 232, 1);
+
+// RGB  https://coolors.co/a9e5bb-fcf6b1-f7b32b-f72c25-2d1e2f 
+$color1: rgba(169, 229, 187, 1);
+$color2: rgba(252, 246, 177, 1);
+$color3: rgba(247, 179, 43, 1);
+$color4: rgba(247, 44, 37, 1);
+$color5: rgba(45, 30, 47, 1);
+
+// RGB RC https://coolors.co/cfdbd5-e8eddf-f5cb5c-242423-333533 
+$color1: rgba(207, 219, 213, 1);
+$color2: rgba(232, 237, 223, 1);
+$color3: rgba(245, 203, 92, 1);
+$color4: rgba(36, 36, 35, 1);
+$color5: rgba(51, 53, 51, 1);
+
+// RGB RC High https://coolors.co/ffffff-00171f-003459-007ea7-00a8e8 
+$color1: rgba(255, 255, 255, 1);
+$color2: rgba(0, 23, 31, 1);
+$color3: rgba(0, 52, 89, 1);
+$color4: rgba(0, 126, 167, 1);
+$color5: rgba(0, 168, 232, 1);
+
+*/
+
+/* RGB RC https://coolors.co/dcdcdd-c5c3c6-46494c-4c5c68-1985a1 */
+$color1: rgba(220, 220, 221, 1);
+$color2: rgba(197, 195, 198, 1);
+$color3: rgba(70, 73, 76, 1);
+$color4: rgba(76, 92, 104, 1);
+$color5: rgba(25, 133, 161, 1);
+
 body {
-	background-color: #F6F4F0;
+	background-color: $color2;
 	min-height: 600px;
 	min-width: 320px;
 	font-size: 14px;
 	line-height: 16px;
 	margin: 0;
+	.header {
+	  background-color: $color5;
+		a.navbar-brand {
+		  color:rgba(0,0,0,0.6);;
+		  padding-left: 8px;
+		}
+	}
 }
-
-.header {
-  background-color: #EF3340;
+.primary, .green {
+	color: #D8E2DC;
+}
+.secondary, .red {
+	color: #FFCAD4;
 }
 .main {
-	background:#DFC970;
+	background: $color1;
 	padding: 18px 0;
 }
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #3E342A;
+  background-color: $color3;
   padding: 18px 0 4px 0;
 }
 
