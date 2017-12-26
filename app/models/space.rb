@@ -8,7 +8,7 @@ class Space < ApplicationRecord
 	mount_uploader :url, FileUploader
 	acts_as_votable
 	is_impressionable
-	reverse_geocoded_by :latitude, :longitude, :address => :location
+	reverse_geocoded_by :lat, :long, :local => :location
 	after_validation :reverse_geocode  # auto-fetch address
 	def posts_path
 		[id, title.parameterize].join("-") + '/posts'
