@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
   private
     def current_user
       begin
-        @current_user ||= User.find(session[:user_id][0]['id']) if session[:user_id][0]['id']
+        # Temporary fix https://github.com/lynndylanhurley/devise_token_auth/issues/74
+        # @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        @current_user ||= User.find(session['warden.user.user.key'][0]) if session['warden.user.user.key'][0]
       rescue Exception => e
         nil
       end
