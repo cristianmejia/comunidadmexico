@@ -36,9 +36,6 @@
   %h3=I18n.t(:what_is_a_space)
   %p
     = link_to 'Users:', users_path 
-    - if user_signed_in?
-      = current_user
-    - else
     = User.count
     registered
   %p

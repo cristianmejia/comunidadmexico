@@ -64,6 +64,10 @@ class User < ApplicationRecord
     end
   end
 
+  def admin?
+    self.roles.include?(:admin)
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
