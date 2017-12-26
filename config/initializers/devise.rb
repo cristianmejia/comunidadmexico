@@ -323,7 +323,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   Devise.mailchimp_api_key = ENV["MAILCHIMP_API_KEY"]
-  Devise.mailing_list_name = 'website'
+  Devise.mailing_list_name = ENV["MAILCHIMP_LIST_NAME"]
   Devise.double_opt_in = false  
   Devise.send_welcome_email = false
   config.omniauth :facebook, ENV["OMNIAUTH_FB_ID"], ENV["OMNIAUTH_FB_KEY"], callback_url: ENV["OMNIAUTH_FB_CALLBACK"]
