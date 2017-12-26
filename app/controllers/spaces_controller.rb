@@ -14,11 +14,18 @@ class SpacesController < ApplicationController
 
   # GET /spaces/new
   def new
-    @space = Space.new
+    if user_signed_in?
+      @space = Space.new
+    else
+      redirect_to root_url, :alert => "Acceso denegado"
+    end
   end
 
   # GET /spaces/1/edit
   def edit
+    unless user_signed_in?
+      redirect_to root_url, :alert => "Acceso denegado"
+    end
   end
 
   # POST /spaces
