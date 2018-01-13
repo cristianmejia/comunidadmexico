@@ -4,7 +4,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 ruby '2.4.1'
-gem 'pg', '1.0.0'
 gem 'xmlrpc'
 gem 'rails'
 gem 'puma'
@@ -83,6 +82,7 @@ group :development, :test do
 end
 group :production do
   gem 'passenger'
+  gem 'pg', '1.0.0'
 end
 group :test do
   gem 'database_cleaner'
