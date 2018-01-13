@@ -12,7 +12,8 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jbuilder'
-gem 'pg'
+gem 'sqlite3', group: :development
+gem 'pg', '0.18.1', group: :production
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -78,7 +79,6 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'sqlite3'
   gem 'thin'
 end
 group :production do
