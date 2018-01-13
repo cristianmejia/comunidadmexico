@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :mailchimp, :omniauthable
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
-
+  has_many :spaces, :dependent => :destroy
   # An user can get votes from the community
   acts_as_votable
   is_impressionable

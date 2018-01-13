@@ -43,9 +43,13 @@ $color2: rgba(197, 195, 198, 1);
 $color3: rgba(70, 73, 76, 1);
 $color4: rgba(76, 92, 104, 1);
 $color5: rgba(25, 133, 161, 1);
+$color6: rgba(255,255,255,0.6);
+$color7: rgba(255,255,255,1);
+$color8: rgba(0,0,0,0.6);
+$color9: rgba(0,0,0,1);
 
 body {
-	background-color: $color2;
+	background-color: $color1;
 	min-height: 600px;
 	min-width: 320px;
 	font-size: 14px;
@@ -53,14 +57,28 @@ body {
 	margin: 0;
 	.header {
 	  background-color: $color5;
+	  	a {
+		  color:$color6;
+		  &:hover, &:focus {
+		  	color:$color7;
+		  }
+		  &:visited, &:active {
+		  	color:$color7;
+		  }
+	  	}
 		a.navbar-brand {
-		  color:rgba(0,0,0,0.6);;
+		  color:$color8;
 		  padding-left: 8px;
+		  &:hover, &:focus {
+		  	color:$color9;
+		  }
+		  &:visited, &:active {
+		  	color:$color9;
+		  }
 		}
 	}
 }
 .main {
-	background: $color1;
 	padding: 18px 0;
 }
 .footer {

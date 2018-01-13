@@ -1,6 +1,7 @@
 class Space < ApplicationRecord
+	belongs_to :user
 	has_many :polls, :dependent => :destroy
-	has_many :candidates_poll, :through => :polls, :source => :candidates, :dependent => :destroy
+	has_many :nominees_poll, :through => :polls, :source => :nominees, :dependent => :destroy
 	has_many :posts, :dependent => :destroy
 	has_many :media, :dependent => :destroy
 	ratyrate_rateable "trustworthy", "popular", "freshines"

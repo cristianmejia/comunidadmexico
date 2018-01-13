@@ -1,4 +1,4 @@
-%nav.navbar.header.navbar-fixed-top.navbar-toggleable-md.navbar-inverse.navbar-light
+%nav.navbar.header.navbar-fixed-top.navbar-expand-md
   .container
     .navbar-header
       %button.navbar-toggler{:type => "button", :aria => {:expanded => "false", :controls => "navbar"}, :data => {:toggle => "collapse", :target => "#navbar"}}
@@ -6,7 +6,7 @@
       = link_to root_path, class: 'navbar-brand' do
         Comunidad M&eacute;xico
     #navbar.navbar-collapse.collapse
-      %ul.mr-auto.navbar-nav
+      %ul.mr-auto.nav.navbar-nav
         = render 'layouts/navigation_links'
-      %ul.mr-auto.navbar-nav
+      %ul.nav.navbar-nav
         = render 'layouts/nav_links_for_auth'
