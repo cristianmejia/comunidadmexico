@@ -47,6 +47,7 @@ $color6: rgba(255,255,255,0.6);
 $color7: rgba(255,255,255,1);
 $color8: rgba(0,0,0,0.6);
 $color9: rgba(0,0,0,1);
+$color10: rgba(255,255,255,0.9);
 
 body {
 	background-color: $color1;
@@ -67,13 +68,13 @@ body {
 		  }
 	  	}
 		a.navbar-brand {
-		  color:$color8;
+		  color:$color10;
 		  padding-left: 8px;
 		  &:hover, &:focus {
-		  	color:$color9;
+		  	color:$color7;
 		  }
 		  &:visited, &:active {
-		  	color:$color9;
+		  	color:$color7;
 		  }
 		}
 	}
