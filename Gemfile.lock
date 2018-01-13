@@ -542,7 +542,7 @@ DEPENDENCIES
   omniauth-openid
   omniauth-twitter
   passenger
-  pg (= 1.0.0)
+  pg
   popper_js
   pry-rails
   pry-rescue

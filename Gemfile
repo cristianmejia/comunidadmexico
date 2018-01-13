@@ -12,6 +12,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+gem 'pg'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -82,7 +83,6 @@ group :development, :test do
 end
 group :production do
   gem 'passenger'
-  gem 'pg', '1.0.0'
 end
 group :test do
   gem 'database_cleaner'
