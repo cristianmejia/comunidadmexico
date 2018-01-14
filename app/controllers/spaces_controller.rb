@@ -31,8 +31,8 @@ class SpacesController < ApplicationController
   # POST /spaces
   # POST /spaces.json
   def create
-    # @space = Space.new(space_params)
-    @space = current_user.spaces.new(space_params)
+    // @space = Space.new(space_params)
+    @space = current_user.spaces.new(params[:space])
 
     respond_to do |format|
       if @space.save
