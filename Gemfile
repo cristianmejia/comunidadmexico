@@ -61,6 +61,7 @@ gem 'popper_js'
 gem 'rails-i18n'
 gem 'metainspector'
 group :development do
+  gem 'binding_of_caller'
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'

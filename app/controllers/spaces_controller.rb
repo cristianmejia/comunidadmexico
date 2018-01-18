@@ -10,13 +10,13 @@ class SpacesController < ApplicationController
   # GET /spaces/1
   # GET /spaces/1.json
   def show
+    add_breadcrumb @space.user.name, @space.user.name
   end
 
   # GET /spaces/new
   def new
     if user_signed_in?
-      # @space = Space.new
-      @space = current_user.spaces.new()
+      @space = Space.new
     else
       redirect_to root_url, :alert => "Acceso denegado"
     end
@@ -32,8 +32,9 @@ class SpacesController < ApplicationController
   # POST /spaces
   # POST /spaces.json
   def create
-    # @space = Space.new(space_params)
-    @space = current_user.spaces.new(space_params)
+    # TODO: create space from current_user
+    # @space = current_user.spaces.build(space_params)
+    @space = Space.new(space_params)
 
     respond_to do |format|
       if @space.save
