@@ -21,6 +21,10 @@
   .field.md-form.form-group
     = tinymce_assets
     = tinymce
+    :javascript
+      document.addEventListener('turbolinks:load', function() {
+        tinymce.init();
+      });
     = f.label :content
     = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
   .field.md-form.form-group
