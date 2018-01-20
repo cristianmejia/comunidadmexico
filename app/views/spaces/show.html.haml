@@ -1,24 +1,26 @@
-.col-md-12
-  %p#notice= notice
-  %h1=@space.title
-.col-md-6.col-sm-12
-  = @space.avatar
-.col-md-6.col-sm-12
-  %p
-    = @space.description
-.col-md-12
-  .relative-content
-    = @space.content
-.col-md-12
-  %h2 Location
-  %h3= @space.local
-  %p
-    %b Lat:
-    = @space.lat
-  %p
-    %b Long:
-    = @space.long
+.container
+  .row
+    .col-md-12
+      %p#notice= notice
+      %h1=@space.title
+    .col-md-6.col-sm-12
+      = @space.avatar
+    .col-md-6.col-sm-12
+      %p
+        = @space.description
+    .col-md-12
+      .relative-content
+        = @space.content
+    .col-md-12
+      %h2 Location
+      %h3= @space.local
+      %p
+        %b Lat:
+        = @space.lat
+      %p
+        %b Long:
+        = @space.long
 
-= link_to 'Edit', edit_space_path(@space)
-\|
-= link_to 'Back', spaces_path
+    = link_to 'Edit', edit_space_path(@space)
+    \|
+    = link_to 'Back', spaces_path

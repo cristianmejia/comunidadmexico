@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   resources :posts
   resources :spaces
   resources :users, :path => '/@' do
-    resources :spaces
-    member do
-      put "like", to:    "spaces#upvote"
-      put "dislike", to: "spaces#downvote"
-    end
-    resources :polls, :defaults => { :format => 'html' } do
-      resources :nominees, :defaults => { :format => 'html' }
+    resources :spaces, :defaults => { :format => 'html' } do
+      member do
+        put "like", to:    "spaces#upvote"
+        put "dislike", to: "spaces#downvote"
+      end
+      resources :polls, :defaults => { :format => 'html' } do
+        resources :nominees, :defaults => { :format => 'html' }
+      end
     end
     resources :posts, :defaults => { :format => 'html' }
     resources :announcements, :defaults => { :format => 'html' }

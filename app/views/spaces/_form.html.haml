@@ -6,32 +6,34 @@
         - @space.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  .field.md-form.form-group
     = f.label :title
-    = f.text_field :title
-  .field
+    = f.text_field :title, :class => 'form-control'
+  .field.md-form.form-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, :class => 'form-control'
+  .field.md-form.form-group
     = f.label :description
-    = f.text_area :description, :class => "tinymce", :rows => 40, :cols => 120
-  .field
+    = f.text_area :description, :class => 'form-control'
+  .field.md-form.form-group
     = f.label :published
     = f.check_box :published
-  .field
+  .field.md-form.form-group
+    = tinymce_assets
+    = tinymce
     = f.label :content
-    = f.text_area :content
-  .field
+    = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
+  .field.md-form.form-group
     = f.label :avatar
-    = f.text_field :avatar
-  .field
+    = f.text_field :avatar, :class => 'form-control'
+  .field.md-form.form-group
     = f.label :lat
-    = f.text_field :lat
-  .field
+    = f.text_field :lat, :class => 'form-control'
+  .field.md-form.form-group
     = f.label :long
-    = f.text_field :long
-  .field
+    = f.text_field :long, :class => 'form-control'
+  .field.md-form.form-group
     = f.label :local
-    = f.text_field :local
+    = f.text_field :local, :class => 'form-control'
   .actions
     = f.submit 'Save'

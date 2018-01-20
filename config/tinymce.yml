@@ -1,6 +1,14 @@
 toolbar:
-  - styleselect | bold italic | undo redo
-  - image | link
+  - styleselect formatselect | bold italic strikethrough forecolor backcolor  | undo redo | image | link
+  - alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat
 plugins:
   - image
   - link
+  - advlist
+  - autolink
+  - lists
+  - charmap
+  - print
+  - preview
+branding:
+  - false

@@ -1,24 +1,27 @@
-%p#notice= notice
+.container
+  .row
+    .col-md-12
+      %p#notice= notice
 
-%p
-  %b Title:
-  = @nominee.title
-%p
-  %b Avatar:
-  = @nominee.avatar
-%p
-  %b Poll:
-  = @nominee.poll
-%p
-  %b Published:
-  = @nominee.published
-%p
-  %b Description:
-  = @nominee.description
-%p
-  %b Popular vote:
-  = @nominee.popular_vote
+      %p
+        %b Title:
+        = @nominee.title
+      %p
+        %b Avatar:
+        = @nominee.avatar
+      %p
+        %b Poll:
+        = @nominee.poll
+      %p
+        %b Published:
+        = @nominee.published
+      %p
+        %b Description:
+        = @nominee.description
+      %p
+        %b Popular vote:
+        = @nominee.popular_vote
 
-= link_to 'Edit', edit_nominee_path(@nominee)
-\|
-= link_to 'Back', nominees_path
+      = link_to 'Edit', edit_nominee_path(@nominee)
+      \|
+      = link_to 'Back', nominees_path

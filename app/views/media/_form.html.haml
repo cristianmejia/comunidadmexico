@@ -8,21 +8,21 @@
 
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, :class => 'form-control'
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, :class => 'form-control'
   .field
     = f.label :description
     = f.text_area :description
   .field
     = f.label :author
-    = f.text_field :author
+    = f.text_field :author, :class => 'form-control'
   .field
     = f.label :url
-    = f.text_field :url
+    = f.text_field :url, :class => 'form-control'
   .field
     = f.label :space
-    = f.text_field :space
+    = f.text_field :space, :class => 'form-control'
   .actions
     = f.submit 'Save'

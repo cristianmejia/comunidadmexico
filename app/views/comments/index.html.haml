@@ -1,25 +1,28 @@
-%h1 Listing comments
+.container
+  .row
+    .col-md-12
+      %h1 Listing comments
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th Author
-      %th
-      %th
-      %th
+      %table
+        %thead
+          %tr
+            %th Title
+            %th Body
+            %th Author
+            %th
+            %th
+            %th
 
-  %tbody
-    - @comments.each do |comment|
-      %tr
-        %td= comment.title
-        %td= comment.body
-        %td= comment.author
-        %td= link_to 'Show', comment
-        %td= link_to 'Edit', edit_comment_path(comment)
-        %td= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }
+        %tbody
+          - @comments.each do |comment|
+            %tr
+              %td= comment.title
+              %td= comment.body
+              %td= comment.author
+              %td= link_to 'Show', comment
+              %td= link_to 'Edit', edit_comment_path(comment)
+              %td= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+      %br
 
-= link_to 'New Comment', new_comment_path
+      = link_to 'New Comment', new_comment_path

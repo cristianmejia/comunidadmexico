@@ -14,7 +14,7 @@ class PollsController < ApplicationController
 
   # GET /polls/new
   def new
-    @poll = Poll.new
+    @poll = current_user.first.spaces.find(params[:space_id]).polls.new
   end
 
   # GET /polls/1/edit
@@ -24,7 +24,9 @@ class PollsController < ApplicationController
   # POST /polls
   # POST /polls.json
   def create
-    @poll = Poll.new(poll_params)
+    # @poll = Poll.new(poll_params)
+    # current_user.first.spaces.first.polls.new
+    @poll = current_user.first.spaces.find(params[:space_id]).polls.create(poll_params)
 
     respond_to do |format|
       if @poll.save

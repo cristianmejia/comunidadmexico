@@ -1,33 +1,36 @@
-%h1 Listing posts
+.container
+  .row
+    .col-md-12
+      %h1 Listing posts
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Name
-      %th Description
-      %th Published
-      %th Content
-      %th Photo
-      %th Space
-      %th
-      %th
-      %th
+      %table.table.table-responsive
+        %thead
+          %tr
+            %th Title
+            %th Name
+            %th Description
+            %th Published
+            %th Content
+            %th Photo
+            %th Space
+            %th
+            %th
+            %th
 
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.title
-        %td= post.name
-        %td= post.description
-        %td= post.published
-        %td= post.content
-        %td= post.photo
-        %td= post.space
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+        %tbody
+          - @posts.each do |post|
+            %tr
+              %td= post.title
+              %td= post.name
+              %td= post.description
+              %td= post.published
+              %td= post.content
+              %td= post.photo
+              %td= post.space
+              %td= link_to 'Show', '/@/' + post.user_id.to_s + '/spaces/' + post.id.to_s
+              %td= link_to 'Edit', edit_post_path(post)
+              %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+      %br
 
-= link_to 'New Post', new_post_path
+      = link_to 'New Post', new_post_path

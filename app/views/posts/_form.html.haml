@@ -8,10 +8,10 @@
 
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, :class => 'form-control'
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, :class => 'form-control'
   .field
     = f.label :description
     = f.text_area :description
@@ -23,9 +23,9 @@
     = f.text_area :content
   .field
     = f.label :photo
-    = f.text_field :photo
+    = f.text_field :photo, :class => 'form-control'
   .field
     = f.label :space
-    = f.text_field :space
+    = f.text_field :space, :class => 'form-control'
   .actions
     = f.submit 'Save'

@@ -1,24 +1,29 @@
-%p#notice= notice
+.container
+  .row
+    .col-md-12
+      %p#notice= notice
+  .row
+    .col-md-12
 
-%p
-  %b Title:
-  = @poll.title
-%p
-  %b Name:
-  = @poll.name
-%p
-  %b Space:
-  = @poll.space
-%p
-  %b Description:
-  = @poll.description
-%p
-  %b Content:
-  = @poll.content
-%p
-  %b Author:
-  = @poll.author
+      %p
+        %b Title:
+        = @poll.title
+      %p
+        %b Name:
+        = @poll.name
+      %p
+        %b Space:
+        = @poll.space
+      %p
+        %b Description:
+        = @poll.description
+      %p
+        %b Content:
+        = @poll.content
+      %p
+        %b Author:
+        = @poll.author
 
-= link_to 'Edit', edit_poll_path(@poll)
-\|
-= link_to 'Back', polls_path
+      = link_to 'Edit', edit_poll_path(@poll)
+      \|
+      = link_to 'Back', polls_path

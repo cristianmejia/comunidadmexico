@@ -1,31 +1,34 @@
-%h1 Listing polls
+.container
+  .row
+    .col-md-12
+      %h1 Listing polls
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Name
-      %th Space
-      %th Description
-      %th Content
-      %th Author
-      %th
-      %th
-      %th
+      %table
+        %thead
+          %tr
+            %th Title
+            %th Name
+            %th Space
+            %th Description
+            %th Content
+            %th Author
+            %th
+            %th
+            %th
 
-  %tbody
-    - @polls.each do |poll|
-      %tr
-        %td= poll.title
-        %td= poll.name
-        %td= poll.space
-        %td= poll.description
-        %td= poll.content
-        %td= poll.author
-        %td= link_to 'Show', poll
-        %td= link_to 'Edit', edit_poll_path(poll)
-        %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
+        %tbody
+          - @polls.each do |poll|
+            %tr
+              %td= poll.title
+              %td= poll.name
+              %td= poll.space
+              %td= poll.description
+              %td= poll.content
+              %td= poll.author
+              %td= link_to 'Show', '@/' + poll.user_id.to_s + '/spaces/' + poll.id.to_s
+              %td= link_to 'Edit', edit_poll_path(poll)
+              %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+      %br
 
-= link_to 'New Poll', new_poll_path
+      = link_to 'New Poll', new_poll_path

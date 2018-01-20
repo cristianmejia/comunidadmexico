@@ -1,7 +1,10 @@
-%h1 Editing medium
+.container
+  .row
+    .col-md-12
+      %h1 Editing medium
 
-= render 'form'
+      = render 'form'
 
-= link_to 'Show', @medium
-\|
-= link_to 'Back', media_path
+      = link_to 'Show', @medium
+      \|
+      = link_to 'Back', media_path
