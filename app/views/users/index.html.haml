@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-md-12
+      %h3 Users
+  .row
+    .col-md-12
+      %table.table.table-striped.table-hover.table-responsive
+        %tbody
+          - @users.each do |user|
+            %tr
+              = render user

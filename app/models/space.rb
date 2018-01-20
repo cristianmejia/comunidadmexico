@@ -21,6 +21,7 @@ class Space < ApplicationRecord
 		[id, title.parameterize].join("-") + '/media'
 	end
 	def to_param
+		# @space_url = '@' + user_id.to_s + ':' + [id, title.parameterize].join("-")
 		@space_url = [id, title.parameterize].join("-")
 	end
 end

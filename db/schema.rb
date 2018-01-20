@@ -120,7 +120,9 @@ ActiveRecord::Schema.define(version: 20171226081234) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "space_id"
+    t.integer "user_id"
     t.index ["space_id"], name: "index_spaces_on_space_id"
+    t.index ["user_id"], name: "index_spaces_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
