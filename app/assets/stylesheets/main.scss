@@ -4,15 +4,11 @@
 @import "1st_load_framework";
 @import "scaffolds";
 @import "theme";
+@import "blueimp-gallery";
 @import "bootstrap-image-gallery";
+@import "blueimp-gallery-indicator";
+@import "blueimp-gallery-video";
 @import "devise_bootstrap_views";
-/*!
- * Bootstrap v4.0.0-beta (https://getbootstrap.com)
- * Copyright 2011-2017 The Bootstrap Authors
- * Copyright 2011-2017 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-
 @import "bootstrap/functions";
 @import "bootstrap/variables";
 @import "bootstrap/mixins";

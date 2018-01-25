@@ -6,11 +6,15 @@ class Space < ApplicationRecord
 	has_many :media, :dependent => :destroy
 	ratyrate_rateable "trustworthy", "popular", "freshines"
 	scope :published, -> {where(:published => true)}
-	mount_uploader :url, FileUploader
-	acts_as_votable
-	is_impressionable
+	geocoded_by :local   # can also be an IP address
+	after_validation :geocode          # auto-fetch coordinates
 	reverse_geocoded_by :lat, :long, :local => :location
 	after_validation :reverse_geocode  # auto-fetch address
+	mount_uploader :avatar, FileUploader
+	acts_as_votable
+	is_impressionable
+	validates_presence_of :title, :name, :local
+
 	def posts_path
 		[id, title.parameterize].join("-") + '/posts'
 	end
