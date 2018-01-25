@@ -7,12 +7,8 @@
           %th Id
           %th Title
           %th Name
-          %th Description
           %th Published
-          %th Content
           %th Avatar
-          %th Lat
-          %th Long
           %th Local
           %th
           %th
@@ -24,12 +20,8 @@
             %th{:scope => "row"}= space.id
             %td= space.title
             %td= space.name
-            %td= space.description
             %td= space.published
-            %td= space.content
             %td= space.avatar
-            %td= space.lat
-            %td= space.long
             %td= space.local
             %td= link_to 'Show', '/@/' + space.user_id.to_s + '/spaces/' + space.id.to_s
             %td= link_to 'Edit', edit_space_path(space)
@@ -37,4 +29,4 @@
 
     %br
 
-    = link_to 'New Space', new_space_path
+    = link_to 'New Space', new_space_path, :class => 'btn btn-primary'
