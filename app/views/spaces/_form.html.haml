@@ -21,13 +21,6 @@
   .field.md-form.form-group
     = tinymce_assets
     = tinymce
-    :javascript
-      $(document).on('turbolinks:load', function () {
-        console.log('turbolinks:load');
-      });
-      $(document).on('turbolinks:render', function () {
-        console.log('turbolinks:render');
-      });
     = f.label :content
     = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
   .field.md-form.form-group

@@ -12,12 +12,12 @@
   .row
     .col-md-12
       .relative-content
-        = @space.content.html_safe
+        = @space.content.html_safe if @space.content?
   .row
     .col-md-12
       %h2 Location
       %h3= @space.local
 
-      = link_to 'Edit', edit_space_path(@space)
+      = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false"
       \|
       = link_to 'Back', spaces_path
