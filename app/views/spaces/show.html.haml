@@ -3,18 +3,21 @@
     .col-md-12
       %p#notice= notice
       %h1=@space.title
+  .row
     .col-md-6.col-sm-12
       = @space.avatar
     .col-md-6.col-sm-12
       %p
         = @space.description
+  .row
     .col-md-12
       .relative-content
         = @space.content.html_safe
+  .row
     .col-md-12
       %h2 Location
       %h3= @space.local
 
-    = link_to 'Edit', edit_space_path(@space)
-    \|
-    = link_to 'Back', spaces_path
+      = link_to 'Edit', edit_space_path(@space)
+      \|
+      = link_to 'Back', spaces_path

@@ -7,7 +7,7 @@ class Space < ApplicationRecord
 	ratyrate_rateable "trustworthy", "popular", "freshines"
 	scope :published, -> {where(:published => true)}
 	reverse_geocoded_by :lat, :long, :local => :location
-	after_validation :reverse_geocode  # auto-fetch address
+	after_validation :reverse_geocode
 	mount_uploader :avatar, FileUploader
 	acts_as_votable
 	is_impressionable

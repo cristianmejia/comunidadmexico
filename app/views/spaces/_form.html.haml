@@ -22,8 +22,11 @@
     = tinymce_assets
     = tinymce
     :javascript
-      document.addEventListener('turbolinks:load', function() {
-        tinymce.init();
+      $(document).on('turbolinks:load', function () {
+        console.log('turbolinks:load');
+      });
+      $(document).on('turbolinks:render', function () {
+        console.log('turbolinks:render');
       });
     = f.label :content
     = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
