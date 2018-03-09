@@ -18,14 +18,12 @@
         - @spaces.each do |space|
           %tr
             %th{:scope => "row"}= space.id
-            %td= space.title
+            %td= link_to space.title, '/@/' + space.user_id.to_s + '/spaces/' + space.id.to_s
             %td= space.name
             %td= space.published
             %td= space.avatar
             %td= space.local
-            %td= link_to 'Show', '/@/' + space.user_id.to_s + '/spaces/' + space.id.to_s
             %td= link_to 'Edit', edit_space_path(space), :'data-turbolinks' => "false"
-            %td= link_to 'Destroy', space, method: :delete, data: { confirm: 'Are you sure?' }
 
     %br
 

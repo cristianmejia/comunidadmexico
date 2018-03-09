@@ -4,7 +4,6 @@
       %h1 Editing space
 
       = render 'form'
-
-      = link_to 'Show', @space
-      \|
-      = link_to 'Back', spaces_path
+      = link_to 'Show', @space, :class => "button btn btn-secondary"
+      = link_to I18n.t(:spaces), spaces_path, :class => "button btn btn-secondary"
+      = link_to 'Destroy', @space, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button btn btn-danger"
