@@ -1,5 +1,6 @@
 class NomineesController < ApplicationController
   before_action :set_nominee, only: [:show, :edit, :update, :destroy]
+  impressionist
 
   # GET /nominees
   # GET /nominees.json

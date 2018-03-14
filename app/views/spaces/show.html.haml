@@ -4,6 +4,18 @@
       %p#notice= notice
       %h1=@space.title
   .row
+    .col-md-12
+      %h4
+        = I18n.t(:views)
+        = ":"
+        = @space.impressionist_count
+  .row
+    .col-md-12
+      %h4
+        = I18n.t(:visitors)
+        = ":"
+        = @space.impressionist_count(:filter=>:session_hash)
+  .row
     .col-md-6.col-sm-12
       = @space.avatar
     .col-md-6.col-sm-12
@@ -17,6 +29,17 @@
     .col-md-12
       %h2 Location
       %h3= @space.local
+  .row
+    .col-md-12
+      %table
+        - @space.polls.each do |poll|
+          %tr
+            %th{:scope => "row"}= poll.id
+            %td= link_to poll.title, '/@/' + poll.space.user_id.to_s + '/spaces/' + poll.space.id.to_s + '/polls/' + poll.id.to_s
+            %td= poll.name
+            %td= poll.published
+            %td= link_to 'Edit', edit_space_path(poll), :'data-turbolinks' => "false"
+            %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
 
       = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false"
       \|

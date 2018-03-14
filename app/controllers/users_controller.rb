@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user, :except => [:show]
   before_action :correct_user?, :except => [:index]
   #after_action :verify_authorized
+  impressionist
 
   def index
     @users = User.all

@@ -13,7 +13,17 @@
         = @poll.name
       %p
         %b Space:
-        = @poll.space
+        = link_to @poll.space
+      %p
+        %b
+          = I18n.t(:views)
+          = ":"
+          = @poll.impressionist_count
+      %p
+        %b
+          = I18n.t(:visitors)
+          = ":"
+          = @poll.impressionist_count(:filter=>:session_hash)
       %p
         %b Description:
         = @poll.description
