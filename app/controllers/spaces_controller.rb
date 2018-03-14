@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  before_action :set_space, only: [:show, :edit, :update, :destroy]
+  before_action :set_space, only: [:show, :edit, :update, :destroy, :like, :unlike]
   impressionist
 
   # GET /spaces
@@ -69,6 +69,22 @@ class SpacesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to spaces_url, notice: 'Space was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    @space.liked_by current_user.first
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
+  end
+
+  def unlike
+    @space.unliked_by current_user.first
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
     end
   end
 

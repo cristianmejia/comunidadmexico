@@ -28,3 +28,6 @@ es:
   visitors: Visitantes
   name: Nombre
   email: Email
+  votes: Votos
+  likes: Me gusta
+  dislikes: No me gusta

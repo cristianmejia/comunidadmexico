@@ -5,16 +5,26 @@
       %h1=@space.title
   .row
     .col-md-12
-      %h4
-        = I18n.t(:views)
+      %p
+        %b= I18n.t(:views)
         = ":"
         = @space.impressionist_count
-  .row
-    .col-md-12
-      %h4
-        = I18n.t(:visitors)
+      %p
+        %b= I18n.t(:visitors)
         = ":"
         = @space.impressionist_count(:filter=>:session_hash)
+      %p
+        %b= I18n.t(:votes)
+        = ":"
+        = @space.votes_for.size
+      %p
+        %b= I18n.t(:likes)
+        = ":"
+        = @space.get_upvotes.size
+      %p
+        %b= I18n.t(:dislikes)
+        = ":"
+        = @space.get_downvotes.size
   .row
     .col-md-6.col-sm-12
       = @space.avatar
@@ -40,7 +50,10 @@
             %td= poll.published
             %td= link_to 'Edit', edit_space_path(poll), :'data-turbolinks' => "false"
             %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
-
+      - if current_user.first.liked? @space
+        = link_to 'Unlike', unlike_user_space_path(@space), method: :put, remote: true, class: 'unlike_post'
+      - else
+        = link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'unlike_post'
       = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false"
       \|
       = link_to 'Back', spaces_path

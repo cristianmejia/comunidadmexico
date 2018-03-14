@@ -9,7 +9,7 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
   has_many :spaces, :dependent => :destroy
   # An user can get votes from the community
-  acts_as_votable
+  acts_as_voter
   is_impressionable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
