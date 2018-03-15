@@ -14,7 +14,7 @@
         = ":"
         = @space.impressionist_count(:filter=>:session_hash)
       %p
-        %b= I18n.t(:votes)
+        %b{data: {action: 'votes'}}= I18n.t(:votes)
         = ":"
         = @space.votes_for.size
       %p
@@ -25,6 +25,9 @@
         %b= I18n.t(:dislikes)
         = ":"
         = @space.get_downvotes.size
+  .row
+    .col-md-6.col-sm-12
+      = link_to @space.user.name, user_url(@space.user)
   .row
     .col-md-6.col-sm-12
       = @space.avatar
@@ -53,7 +56,8 @@
       - if current_user.first.liked? @space
         = link_to 'Unlike', unlike_user_space_path(@space), method: :put, remote: true, class: 'unlike_post'
       - else
-        = link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'unlike_post'
+        = link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'like_post'
+      \|
       = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false"
       \|
       = link_to 'Back', spaces_path

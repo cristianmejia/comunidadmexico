@@ -75,7 +75,7 @@ class SpacesController < ApplicationController
   def like
     @space.liked_by current_user.first
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_to @space, notice: 'Space was successfully liked.' }
       format.js { render layout: false }
     end
   end
@@ -83,7 +83,7 @@ class SpacesController < ApplicationController
   def unlike
     @space.unliked_by current_user.first
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_to @space, notice: 'Space was successfully unliked.' }
       format.js { render layout: false }
     end
   end

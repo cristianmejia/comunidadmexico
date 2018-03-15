@@ -13,7 +13,7 @@
         = @poll.name
       %p
         %b Space:
-        = link_to @poll.space
+        = link_to @poll.space.title, user_space_url(@poll, @poll.space)
       %p
         %b
           = I18n.t(:views)
@@ -27,15 +27,15 @@
       %p
         %b= I18n.t(:votes)
         = ":"
-        = @space.votes_for.size
+        = @poll.votes_for.size
       %p
         %b= I18n.t(:likes)
         = ":"
-        = @space.get_upvotes.size
+        = @poll.get_upvotes.size
       %p
         %b= I18n.t(:dislikes)
         = ":"
-        = @space.get_downvotes.size
+        = @poll.get_downvotes.size
       %p
         %b Description:
         = @poll.description
