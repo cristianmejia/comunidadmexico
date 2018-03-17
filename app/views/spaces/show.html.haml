@@ -53,11 +53,12 @@
             %td= poll.published
             %td= link_to 'Edit', edit_space_path(poll), :'data-turbolinks' => "false"
             %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
-      - if current_user.first.liked? @space
-        = link_to 'Unlike', unlike_user_space_path(@space), method: :put, remote: true, class: 'unlike_post'
-      - else
-        = link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'like_post'
-      \|
-      = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false"
-      \|
-      = link_to 'Back', spaces_path
+      - if current_user
+        - if current_user.first.liked? @space
+          = link_to 'Unlike', unlike_user_space_path(@space), method: :put, remote: true, class: 'unlike_post btn btn-link'
+        - else
+          = link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'like_post btn btn-link'
+        \|
+        = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false", class: 'btn btn-link'
+        \|
+      = link_to 'Back', spaces_path, class: 'btn btn-link'
