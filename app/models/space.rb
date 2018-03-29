@@ -10,7 +10,7 @@ class Space < ApplicationRecord
 	after_validation :reverse_geocode
 	mount_uploader :avatar, FileUploader
 	acts_as_votable
-	is_impressionable
+	is_impressionable counter_cache: true
 	validates_presence_of :title, :name, :local
 
 	def posts_path
@@ -23,7 +23,7 @@ class Space < ApplicationRecord
 		[id, title.parameterize].join("-") + '/media'
 	end
 	def to_param
-		@space_friendlyurl = '@' + user_id.to_s + '/spaces' + [id, title.parameterize].join("-")
+		@space_friendlyurl = '@' + [user_id, User.find(user_id).name.to_s.parameterize].join("-") + '/~' + [id, title.parameterize].join("-")
 		@space_url = [id, title.parameterize].join("-")
 	end
 end

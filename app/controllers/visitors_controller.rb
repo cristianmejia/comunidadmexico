@@ -1,8 +1,9 @@
 class VisitorsController < ApplicationController
 	def index
-		@topSpaces = Space.all.order(cached_weighted_score: :desc).limit(4)
-		@topPolls = Poll.all.order(cached_weighted_score: :desc).limit(4)
-		@topNominees = Nominee.all.order(cached_weighted_score: :desc).limit(4)
+		@popularSpaces = Space.all.order(impressions_count: :desc).limit(5)
+		@topSpaces = Space.all.order(cached_weighted_score: :desc).limit(5)
+		@topPolls = Poll.all.order(cached_weighted_score: :desc).limit(5)
+		@topNominees = Nominee.all.order(cached_weighted_score: :desc).limit(5)
 		@allSpaces = Space.all
 	end
 end

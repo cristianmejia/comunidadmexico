@@ -1,6 +1,6 @@
 .row
   .col-md-12
-    - if @user.email && (current_user.first.role == 'admin')
+    - if @user.email && current_user && (current_user.first.role == 'admin')
       %h3
         = I18n.t(:email)
         = ":"
@@ -24,15 +24,18 @@
       = @user.impressionist_count(:filter=>:session_hash)
 .row
   .col-md-12
-    %table
+    %table.table
       - @user.spaces.each do |space|
         %tr
           %th{:scope => "row"}= space.id
-          %td= link_to space.title, '/@/' + space.user_id.to_s + '/spaces/' + space.id.to_s
+          %td= link_to space.title, user_space_path(space.user, space)
           %td= space.name
           %td= space.published
           %td= space.avatar
           %td= space.local
           %td= link_to 'Edit', edit_space_path(space), :'data-turbolinks' => "false"
           %td= link_to 'Destroy', space, method: :delete, data: { confirm: 'Are you sure?' }
+.row
+  .col-md-12
+    = link_to 'Back', users_path, class: "btn btn-link"
 

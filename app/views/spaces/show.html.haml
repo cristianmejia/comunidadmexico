@@ -44,11 +44,11 @@
       %h3= @space.local
   .row
     .col-md-12
-      %table
+      %table.table
         - @space.polls.each do |poll|
           %tr
             %th{:scope => "row"}= poll.id
-            %td= link_to poll.title, '/@/' + poll.space.user_id.to_s + '/spaces/' + poll.space.id.to_s + '/polls/' + poll.id.to_s
+            %td= link_to poll.title, user_space_poll_path(poll.space.user, poll.space, poll)
             %td= poll.name
             %td= poll.published
             %td= link_to 'Edit', edit_space_path(poll), :'data-turbolinks' => "false"
@@ -61,4 +61,4 @@
         \|
         = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false", class: 'btn btn-link'
         \|
-      = link_to 'Back', spaces_path, class: 'btn btn-link'
+      = link_to 'Back', user_path(@space.user), class: 'btn btn-link'

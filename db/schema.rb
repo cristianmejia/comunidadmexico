@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317003241) do
+ActiveRecord::Schema.define(version: 20180329060040) do
 
   create_table "comments", force: :cascade do |t|
     t.string "title"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20180317003241) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
+    t.integer "impressions_count"
     t.index ["space_id"], name: "index_spaces_on_space_id"
     t.index ["user_id"], name: "index_spaces_on_user_id"
   end

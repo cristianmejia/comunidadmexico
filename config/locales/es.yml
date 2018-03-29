@@ -7,6 +7,7 @@ es:
   top_nominees: Top Nominados
   top_users: Top Usuarios
   top_spaces: Top espacios
+  popular_spaces: Espacios populares
   frequent_asked_questions: Preguntas frecuentes
   how_to_participate: ¿Cómo participar?
   how_to_earn_badges: ¿Cómo ganar medallas?
@@ -28,6 +29,6 @@ es:
   visitors: Visitantes
   name: Nombre
   email: Email
-  votes: Votos
+  votes: "%{value} votos"
   likes: Me gusta
   dislikes: No me gusta
