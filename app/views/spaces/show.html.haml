@@ -29,15 +29,19 @@
             %b= I18n.t(:dislikes)
             = ":"
             = @space.get_downvotes.size
+        %li.list-inline-item
+          = link_to @space.user.name, user_url(@space.user)
   .row
-    .col-md-6.col-sm-12
-      = link_to @space.user.name, user_url(@space.user)
-  .row
-    .col-md-6.col-sm-12
-      = @space.avatar
-    .col-md-6.col-sm-12
-      %p
-        = @space.description
+    - if @space.avatar
+      .col-md-6.col-sm-12
+        = @space.avatar
+      .col-md-6.col-sm-12
+        %p
+          = @space.description
+    - else
+      .col-md-12.col-sm-12
+        %p
+          = @space.description
   .row
     .col-md-12
       .relative-content
