@@ -82,4 +82,8 @@ class User < ApplicationRecord
     end
   end
 
+  def spaces_path
+    [id, name.parameterize].join("-") + '/@'
+  end
+
 end
