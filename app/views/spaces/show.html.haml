@@ -5,24 +5,30 @@
       %h1=@space.title
   .row
     .col-md-12
-      %p
-        %b= I18n.t(:views)
-        = ":"
-        = @space.impressionist_count
-      %p
-        %b= I18n.t(:visitors)
-        = ":"
-        = @space.impressionist_count(:filter=>:session_hash)
-      %p
-        %b{data: {action: 'votes'}}= I18n.t(:votes, @space.votes_for.size)
-      %p
-        %b= I18n.t(:likes)
-        = ":"
-        = @space.get_upvotes.size
-      %p
-        %b= I18n.t(:dislikes)
-        = ":"
-        = @space.get_downvotes.size
+      %ul.list-inline
+        %li.list-inline-item
+          %p
+            %b= I18n.t(:views)
+            = ":"
+            = @space.impressionist_count
+        %li.list-inline-item
+          %p
+            %b= I18n.t(:visitors)
+            = ":"
+            = @space.impressionist_count(:filter=>:session_hash)
+        %li.list-inline-item
+          %p
+            %b{data: {action: 'votes'}}= I18n.t(:votes, :value => @space.votes_for.size)
+        %li.list-inline-item
+          %p
+            %b= I18n.t(:likes)
+            = ":"
+            = @space.get_upvotes.size
+        %li.list-inline-item
+          %p
+            %b= I18n.t(:dislikes)
+            = ":"
+            = @space.get_downvotes.size
   .row
     .col-md-6.col-sm-12
       = link_to @space.user.name, user_url(@space.user)
