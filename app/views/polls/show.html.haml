@@ -46,6 +46,6 @@
         %b Author:
         = @poll.author
 
-      = link_to 'Edit', edit_poll_path(@poll), class: "btn btn-link"
+      = link_to 'Edit', edit_user_space_poll_path(@poll), class: "btn btn-link"
       \|
       = link_to 'Back', user_space_path(@poll.space.user, @poll.space), class: "btn btn-link"
