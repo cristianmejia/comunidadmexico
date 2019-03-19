@@ -30,7 +30,6 @@
           %th{:scope => "row"}= space.id
           %td= link_to space.title, user_space_path(space.user, space)
           %td= space.name
-          %td= space.published
           %td= space.avatar
           %td= space.local
           - if current_user.try(:admin?)
