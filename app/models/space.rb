@@ -4,6 +4,7 @@ class Space < ApplicationRecord
 	has_many :nominees_poll, :through => :polls, :source => :nominees, :dependent => :destroy
 	has_many :posts, :dependent => :destroy
 	has_many :media, :dependent => :destroy
+	has_many :experiences, :dependent => :destroy
 	ratyrate_rateable "trustworthy", "popular", "freshines"
 	scope :published, -> {where(:published => true)}
 	reverse_geocoded_by :lat, :long, :local => :location
