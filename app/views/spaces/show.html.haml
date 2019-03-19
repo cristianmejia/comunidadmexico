@@ -32,7 +32,7 @@
         %li.list-inline-item
           = link_to @space.user.name, user_url(@space.user)
   .row
-    - if @space.avatar
+    - if @space.avatar.present?
       .col-md-6.col-sm-12
         = @space.avatar
       .col-md-6.col-sm-12
