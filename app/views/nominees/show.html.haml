@@ -22,6 +22,6 @@
         %b Popular vote:
         = @nominee.popular_vote
 
-      = link_to 'Edit', edit_nominee_path(@nominee)
+      = link_to 'Edit', edit_user_space_poll_nominee_path(@nominee)
       \|
-      = link_to 'Back', nominees_path
+      = link_to 'Back', user_space_poll_nominees_path
