@@ -17,9 +17,9 @@ Rails.application.routes.draw do
         resources :nominees, :defaults => { :format => 'html' }
       end
     end
-    resources :posts, :defaults => { :format => 'html' }
-    resources :announcements, :defaults => { :format => 'html' }
-    resources :media, :defaults => { :format => 'html' }
+    resources :posts, :defaults => { :format => 'html' }, :path => '/blog'
+    resources :experiences, :defaults => { :format => 'html' }, :path => '/live'
+    resources :media, :defaults => { :format => 'html' }, :path => '/vlog'
   end
   root to: 'visitors#index'
   devise_for :users

@@ -15,13 +15,16 @@ class Space < ApplicationRecord
 	validates_presence_of :title, :name, :local
 
 	def posts_path
-		[id, title.parameterize].join("-") + '/posts'
+		[id, title.parameterize].join("-") + '/blog'
 	end
 	def polls_path
-		[id, title.parameterize].join("-") + '/polls'
+		[id, title.parameterize].join("-") + '/quiz'
 	end
 	def media_path
-		[id, title.parameterize].join("-") + '/media'
+		[id, title.parameterize].join("-") + '/vlog'
+	end
+	def experiences_path
+		[id, title.parameterize].join("-") + '/live'
 	end
 	def to_param
 		@space_friendlyurl = '@' + [user_id, User.find(user_id).name.to_s.parameterize].join("-") + '/~' + [id, title.parameterize].join("-")
