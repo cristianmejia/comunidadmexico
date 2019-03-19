@@ -7,15 +7,15 @@ Rails.application.routes.draw do
         put "unlike", to: "spaces#unlike"
       end
       resources :polls, :defaults => { :format => 'html' }, :path => '/quiz' do
-        resources :nominees, :defaults => { :format => 'html' }, :as => '/ops'
+        resources :nominees, :defaults => { :format => 'html' }, :path => '/ops'
       end
     end
     resources :posts, :defaults => { :format => 'html' }, :path => '/blog' do
       resources :comments, :defaults => { :format => 'html' }
     end
-    resources :experiences, :defaults => { :format => 'html' }, :as => '/live'
-    resources :media, :defaults => { :format => 'html' }, :as => '/vlog'
-    resources :notices, :defaults => { :format => 'html' }, :as => '/shout'
+    resources :experiences, :defaults => { :format => 'html' }, :path => '/live'
+    resources :media, :defaults => { :format => 'html' }, :path => '/vlog'
+    resources :notices, :defaults => { :format => 'html' }, :path => '/shout'
   end
   root to: 'visitors#index'
   devise_for :users
