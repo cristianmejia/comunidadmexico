@@ -7,7 +7,7 @@ Rails.application.routes.draw do
         put "unlike", to: "spaces#unlike"
       end
       resources :polls, :defaults => { :format => 'html' }, :path => '/quiz' do
-        resources :nominees, :defaults => { :format => 'html' }, :path => '/ops'
+        resources :nominees, :defaults => { :format => 'html' }, :as => '/ops'
       end
     end
     resources :posts, :defaults => { :format => 'html' }, :path => '/blog' do
