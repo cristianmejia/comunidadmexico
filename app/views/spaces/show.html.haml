@@ -51,8 +51,9 @@
             %td= link_to poll.title, user_space_poll_path(poll.space.user, poll.space, poll)
             %td= poll.name
             %td= poll.published
-            %td= link_to 'Edit', edit_space_path(poll), :'data-turbolinks' => "false"
-            %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
+            - if current_user?
+              %td= link_to 'Edit', edit_space_path(poll), :'data-turbolinks' => "false"
+              %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
       - if current_user
         - if current_user.first.liked? @space
           = link_to 'Unlike', unlike_user_space_path(@space), method: :put, remote: true, class: 'unlike_post btn btn-link'
