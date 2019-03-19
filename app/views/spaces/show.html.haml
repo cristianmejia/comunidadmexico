@@ -67,6 +67,6 @@
         - else
           = link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'like_post btn btn-link'
         \|
-        = link_to 'Edit', edit_space_path(@space), :'data-turbolinks' => "false", class: 'btn btn-link'
+        = link_to 'Edit', edit_user_space_path(@space), :'data-turbolinks' => "false", class: 'btn btn-link'
         \|
       = link_to 'Back', user_path(@space.user), class: 'btn btn-link'
