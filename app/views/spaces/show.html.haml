@@ -14,9 +14,7 @@
         = ":"
         = @space.impressionist_count(:filter=>:session_hash)
       %p
-        %b{data: {action: 'votes'}}= I18n.t(:votes)
-        = ":"
-        = @space.votes_for.size
+        %b{data: {action: 'votes'}}= I18n.t(:votes, @space.votes_for.size)
       %p
         %b= I18n.t(:likes)
         = ":"

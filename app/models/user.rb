@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :mailchimp, :omniauthable
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :vip, :admin, :provider, :consumer]
   after_initialize :set_default_role, :if => :new_record?
   has_many :spaces, :dependent => :destroy
   # An user can get votes from the community
