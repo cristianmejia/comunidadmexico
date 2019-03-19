@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     resources :posts, :defaults => { :format => 'html' }, :path => '/blog' do
       resources :comments, :defaults => { :format => 'html' }
     end
-    resources :experiences, :defaults => { :format => 'html' }, :path => '/live'
-    resources :media, :defaults => { :format => 'html' }, :path => '/vlog'
-    resources :notices, :defaults => { :format => 'html' }, :path => '/shout'
+    resources :experiences, :defaults => { :format => 'html' }, :as => '/live'
+    resources :media, :defaults => { :format => 'html' }, :as => '/vlog'
+    resources :notices, :defaults => { :format => 'html' }, :as => '/shout'
   end
   root to: 'visitors#index'
   devise_for :users
