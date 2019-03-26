@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-12
+      %h1 Editing experience
+
+      = render 'form'
+
+      = link_to 'Show', @experience, class: "btn btn-link"
+      \|
+      = link_to 'Back', user_space_experiences_path, class: "btn btn-link"

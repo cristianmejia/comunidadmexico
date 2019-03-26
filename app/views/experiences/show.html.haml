@@ -1,0 +1,51 @@
+.container
+  .row
+    .col-md-12
+      %p#notice= notice
+  .row
+    .col-md-12
+
+      %p
+        %b Title:
+        = @experience.title
+      %p
+        %b Name:
+        = @experience.name
+      %p
+        %b Space:
+        = link_to @experience.space.title, user_space_url(@experience, @experience.space)
+      %p
+        %b
+          = I18n.t(:views)
+          = ":"
+          = @experience.impressionist_count
+      %p
+        %b
+          = I18n.t(:visitors)
+          = ":"
+          = @experience.impressionist_count(:filter=>:session_hash)
+      %p
+        %b= I18n.t(:votes)
+        = ":"
+        = @experience.votes_for.size
+      %p
+        %b= I18n.t(:likes)
+        = ":"
+        = @experience.get_upvotes.size
+      %p
+        %b= I18n.t(:dislikes)
+        = ":"
+        = @experience.get_downvotes.size
+      %p
+        %b Description:
+        = @experience.description
+      %p
+        %b Content:
+        = @experience.content
+      %p
+        %b Author:
+        = @experience.author
+
+      = link_to 'Edit', edit_user_space_experience_path(@experience), class: "btn btn-link"
+      \|
+      = link_to 'Back', user_space_path(@experience.space.user, @experience.space), class: "btn btn-link"

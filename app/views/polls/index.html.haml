@@ -26,7 +26,7 @@
               %td= poll.content
               %td= poll.author
               %td= link_to 'Show', user_space_polls_path(poll.space, poll.space.user)
-              %td= link_to 'Edit', edit_poll_path(poll)
+              %td= link_to 'Edit', edit_user_space_poll_path(poll)
               %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
 
       %br

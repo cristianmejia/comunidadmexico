@@ -1,0 +1,36 @@
+.container
+  .row
+    .col-md-12
+      %h1 Listing experiences
+
+      %table
+        %thead
+          %tr
+            %th Title
+            %th Name
+            %th Space
+            %th Description
+            %th Content
+            %th Duration
+            %th Author
+            %th
+            %th
+            %th
+
+        %tbody
+          - @experiences.each do |experience|
+            %tr
+              %td= experience.title
+              %td= experience.name
+              %td= experience.space
+              %td= experience.description
+              %td= experience.content
+              %td= experience.duration
+              %td= experience.author
+              %td= link_to 'Show', user_space_experiences_path(experience.space, experience.space.user)
+              %td= link_to 'Edit', edit_user_space_experience_path(experience)
+              %td= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' }
+
+      %br
+
+      = link_to 'New experience', new_experience_path

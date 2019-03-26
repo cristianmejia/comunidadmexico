@@ -1,0 +1,29 @@
+= form_for @experience do |f|
+  - if @experience.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@experience.errors.count, "error")} prohibited this experience from being saved:"
+      %ul
+        - @experience.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title, :class => 'form-control'
+  .field
+    = f.label :name
+    = f.text_field :name, :class => 'form-control'
+  .field
+    = f.label :space
+    = f.text_field :space, :class => 'form-control'
+    %input{:type => 'hidden', :value => @experience.space.id, :name => 'space_id'}
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :author
+    = f.text_field :author, :class => 'form-control'
+  .actions
+    = f.submit 'Save', class: "btn btn-link btn-primary"
