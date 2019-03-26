@@ -15,7 +15,7 @@
   .field
     = f.label :space
     = f.text_field :space, :class => 'form-control'
-    %input{:type => 'hidden', :value => @poll.space.id, :name => 'space_id'}
+    %input{:type => 'hidden', :value => @poll.space_id, :name => 'space_id'}
   .field
     = f.label :description
     = f.text_area :description
