@@ -16,14 +16,10 @@ class PollsController < ApplicationController
   # GET /polls/new
   def new
     if user_signed_in?
-      @poll = current_user.first.spaces.find(params[:space_id]).polls.new
+      @poll = Poll.new
     else
       redirect_to root_url, :alert => "Acceso denegado"
     end
-  end
-
-  def polls_path
-    [space_id, User.find(space_id).name.to_s.parameterize].join("-") + '/quiz'
   end
 
   # GET /polls/1/edit
