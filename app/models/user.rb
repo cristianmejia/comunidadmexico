@@ -8,6 +8,10 @@ class User < ApplicationRecord
   enum role: [:user, :vip, :admin, :provider, :consumer]
   after_initialize :set_default_role, :if => :new_record?
   has_many :spaces, :dependent => :destroy
+  has_many :provider_event, class_name: 'Event',
+    foreign_key: 'provider_id'
+  has_many :consumer_event, class_name: 'Event',
+    foreign_key: 'consumer_id'
   # An user can get votes from the community
   acts_as_voter
   is_impressionable
