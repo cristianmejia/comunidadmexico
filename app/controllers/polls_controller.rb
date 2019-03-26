@@ -22,6 +22,10 @@ class PollsController < ApplicationController
     end
   end
 
+  def polls_path
+    [space_id, User.find(space_id).name.to_s.parameterize].join("-") + '/quiz'
+  end
+
   # GET /polls/1/edit
   def edit
   end
