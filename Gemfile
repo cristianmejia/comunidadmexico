@@ -27,7 +27,7 @@ group :development do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap'
-gem 'haml-rails'
+gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
 gem 'pundit'
 gem 'administrate'
