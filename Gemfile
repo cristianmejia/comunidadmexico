@@ -16,7 +16,7 @@ gem 'sqlite3', group: :development
 gem 'pg', '0.18.1', group: :production
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 2.7', '>= 2.7.1'
   gem 'selenium-webdriver'
 end
 group :development do
@@ -46,7 +46,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'omniauth-oauth2'
 gem 'high_voltage'
-gem 'less-rails'
+# gem 'less-rails'
 gem 'breadcrumbs_on_rails'
 gem 'carrierwave'
 gem 'font-awesome-rails'
@@ -56,10 +56,11 @@ gem 'impressionist'
 gem 'mailgun_rails'
 gem 'tinymce-rails'
 gem 'geocoder'
-gem 'Bootstrap-Image-Gallery-rails'
+# gem 'Bootstrap-Image-Gallery-rails'
 gem 'popper_js'
 gem 'rails-i18n'
 gem 'metainspector'
+gem 'mini_racer'
 group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
