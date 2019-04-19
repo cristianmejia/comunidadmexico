@@ -25,10 +25,10 @@
               %td= poll.description
               %td= poll.content
               %td= poll.author
-              %td= link_to 'Show', user_space_polls_path(poll.space, poll.space.user)
-              %td= link_to 'Edit', edit_user_space_poll_path(poll)
-              %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
+              %td= link_to 'Show', user_space_polls_path(poll.space, poll.space.user, poll)
+              %td= link_to 'Edit', user_space_poll_path(poll.space.user, poll.space, poll), :'data-turbolinks' => "false"
+              %td= link_to 'Destroy', user_space_polls_path(poll.space, poll.space.user, poll), method: :delete, data: { confirm: 'Are you sure?' }
 
       %br
 
-      = link_to 'New Poll', new_user_space_poll_path
+      = link_to 'New Poll', new_user_space_poll_path, :'data-turbolinks' => "false"

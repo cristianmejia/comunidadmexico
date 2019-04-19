@@ -26,9 +26,9 @@
               %td= nominee.description
               %td= nominee.popular_vote
               %td= link_to 'Show', nominee
-              %td= link_to 'Edit', edit_nominee_path(nominee)
+              %td= link_to 'Edit', edit_nominee_path(nominee), :'data-turbolinks' => "false"
               %td= link_to 'Destroy', nominee, method: :delete, data: { confirm: 'Are you sure?' }
 
       %br
 
-      = link_to 'New Nominee', new_user_space_poll_nominee_path
+      = link_to 'New Nominee', new_user_space_poll_nominee_path, :'data-turbolinks' => "false"

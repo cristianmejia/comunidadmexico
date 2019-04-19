@@ -23,8 +23,8 @@
             %td= space.published
             %td= space.avatar
             %td= space.local
-            %td= link_to 'Edit', edit_space_path(space), :'data-turbolinks' => "false"
+            %td= link_to 'Edit', edit_user_space_path(space.user, space), :'data-turbolinks' => "false"
 
     %br
 
-    = link_to 'New Space', new_space_path, :class => 'btn btn-primary'
+    = link_to 'New Space', new_user_space_path, :class => 'btn btn-primary', :'data-turbolinks' => "false"

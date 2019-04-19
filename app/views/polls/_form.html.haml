@@ -6,24 +6,22 @@
         - @poll.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  .field.md-form.form-group
     = f.label :title
     = f.text_field :title, :class => 'form-control'
-  .field
+  .field.md-form.form-group
     = f.label :name
     = f.text_field :name, :class => 'form-control'
-  .field
-    = f.label :space
-    = f.text_field :space, :class => 'form-control'
-    %input{:type => 'hidden', :value => @poll.space_id, :name => 'space_id'}
-  .field
+  .field.md-form.form-group
     = f.label :description
     = f.text_area :description
-  .field
+  .field.md-form.form-group
+    = tinymce_assets
+    = tinymce
     = f.label :content
-    = f.text_area :content
-  .field
+    = f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
+  .field.md-form.form-group
     = f.label :author
     = f.text_field :author, :class => 'form-control'
   .actions
-    = f.submit 'Save', class: "btn btn-link btn-primary"
+    = f.submit 'Save', :class => "btn btn-link btn-primary"

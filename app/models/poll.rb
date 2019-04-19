@@ -11,10 +11,10 @@ class Poll < ApplicationRecord
   end
 
   def polls_path
-    [space_id, User.find(space_id).name.to_s.parameterize].join("-") + '/quiz'
+    [space_id, Space.find(space_id).name.to_s.parameterize].join("-") + '/quiz'
   end
 
   def poll_path
-    [space_id, User.find(space_id).name.to_s.parameterize].join("-") + '/quiz' + [id, title.parameterize].join("-")
+    [space_id, Space.find(space_id).name.to_s.parameterize].join("-") + '/quiz' + [id, title.parameterize].join("-")
   end
 end

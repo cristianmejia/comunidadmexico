@@ -1,4 +1,4 @@
-= form_for @space do |f|
+= form_for(@space, url: user_spaces_path) do |f|
   - if @space.errors.any?
     #error_explanation
       %h2= "#{pluralize(@space.errors.count, "error")} prohibited this space from being saved:"

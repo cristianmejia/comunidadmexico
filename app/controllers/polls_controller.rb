@@ -11,6 +11,7 @@ class PollsController < ApplicationController
   # GET /polls/1
   # GET /polls/1.json
   def show
+    add_breadcrumb @poll.space.user.name, @poll.space.title, @poll.title
   end
 
   # GET /polls/new
@@ -35,7 +36,7 @@ class PollsController < ApplicationController
 
     respond_to do |format|
       if @poll.save
-        format.html { redirect_to @poll, notice: 'Poll was successfully created.' }
+        format.html { redirect_to user_space_poll_path(current_user, @poll.space, @poll), notice: 'Poll was successfully created.' }
         format.json { render :show, status: :created, location: @poll }
       else
         format.html { render :new }

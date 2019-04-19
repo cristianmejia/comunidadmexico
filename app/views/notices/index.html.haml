@@ -17,9 +17,9 @@
         %td= notice.content
         %td= notice.author
         %td= link_to 'Show', notice
-        %td= link_to 'Edit', edit_notice_path(notice)
+        %td= link_to 'Edit', edit_notice_path(notice), :'data-turbolinks' => "false"
         %td= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Notice', new_notice_path
+= link_to 'New Notice', new_notice_path, :'data-turbolinks' => "false"

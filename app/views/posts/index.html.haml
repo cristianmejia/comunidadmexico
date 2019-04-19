@@ -26,11 +26,10 @@
               %td= post.published
               %td= post.content
               %td= post.photo
-              %td= post.space
-              %td= link_to 'Show', '/@/' + post.user_id.to_s + '/spaces/' + post.id.to_s
-              %td= link_to 'Edit', edit_post_path(post)
-              %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+              %td= link_to 'Show', user_space_post_path(post.space.user, post.space, post)
+              %td= link_to 'Edit', edit_user_space_post_path(post.space.user, post.space, post), :'data-turbolinks' => "false"
+              %td= link_to 'Destroy', user_space_post_path(post.space.user, post.space, post), method: :delete, data: { confirm: 'Are you sure?' }
 
       %br
 
-      = link_to 'New Post', new_user_space_post_path
+      = link_to 'New Post', new_user_space_post_path, :'data-turbolinks' => "false"

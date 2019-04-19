@@ -25,10 +25,10 @@
               %td= medium.author
               %td= medium.url
               %td= medium.space
-              %td= link_to 'Show', medium
-              %td= link_to 'Edit', edit_user_space_medium_path(medium)
-              %td= link_to 'Destroy', medium, method: :delete, data: { confirm: 'Are you sure?' }
+              %td= link_to 'Show', user_space_medium_path(current_user, medium.space, medium)
+              %td= link_to 'Edit', edit_user_space_medium_path(current_user, medium.space, medium), :'data-turbolinks' => "false"
+              %td= link_to 'Destroy', user_space_medium_path(current_user, medium.space, medium), method: :delete, data: { confirm: 'Are you sure?' }
 
       %br
 
-      = link_to 'New Medium', new_user_space_medium_path
+      = link_to 'New Medium', new_user_space_medium_path, :'data-turbolinks' => "false"

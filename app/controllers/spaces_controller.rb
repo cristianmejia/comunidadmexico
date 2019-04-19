@@ -11,7 +11,7 @@ class SpacesController < ApplicationController
   # GET /spaces/1
   # GET /spaces/1.json
   def show
-    add_breadcrumb @space.user.name, @space.user.name
+    add_breadcrumb @space.user.name, @space.title
   end
 
   # GET /spaces/new
@@ -39,7 +39,7 @@ class SpacesController < ApplicationController
 
     respond_to do |format|
       if @space.save
-        format.html { redirect_to @space, notice: 'Space was successfully created.' }
+        format.html { redirect_to user_space_path(current_user, @space), notice: 'Space was successfully created.' }
         format.json { render :show, status: :created, location: @space }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class SpacesController < ApplicationController
   def update
     respond_to do |format|
       if @space.update(space_params)
-        format.html { redirect_to @space, notice: 'Space was successfully updated.' }
+        format.html { redirect_to user_space_path(current_user, @space), notice: 'Space was successfully updated.' }
         format.json { render :show, status: :ok, location: @space }
       else
         format.html { render :edit }
@@ -75,7 +75,7 @@ class SpacesController < ApplicationController
   def like
     @space.liked_by current_user.first
     respond_to do |format|
-      format.html { redirect_to @space, notice: 'Space was successfully liked.' }
+      format.html { redirect_to user_space_path(current_user, @space), notice: 'Space was successfully liked.' }
       format.js { render layout: false }
     end
   end
@@ -83,7 +83,7 @@ class SpacesController < ApplicationController
   def unlike
     @space.unliked_by current_user.first
     respond_to do |format|
-      format.html { redirect_to @space, notice: 'Space was successfully unliked.' }
+      format.html { redirect_to user_space_path(current_user, @space), notice: 'Space was successfully unliked.' }
       format.js { render layout: false }
     end
   end

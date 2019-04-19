@@ -1,9 +1,10 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-4=I18n.t(:title)
+    %p.lead=I18n.t(:description)
 .container
-  .jumbotron.jumbotron-fluid
-    .container
-      %h1.display-4=I18n.t(:title)
-      %p.lead=I18n.t(:description)	
-  .section=render 'layouts/search_widget'
+  .row
+    .section=render 'layouts/search_widget'
   .row
     .col-md-4.col-sm-12
       %h3=I18n.t(:popular_spaces)

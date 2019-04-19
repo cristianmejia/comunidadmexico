@@ -28,9 +28,9 @@
               %td= experience.duration
               %td= experience.author
               %td= link_to 'Show', user_space_experiences_path(experience.space, experience.space.user)
-              %td= link_to 'Edit', edit_user_space_experience_path(experience)
+              %td= link_to 'Edit', edit_user_space_experience_path(experience), :'data-turbolinks' => "false"
               %td= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' }
 
       %br
 
-      = link_to 'New experience', new_user_space_experience_path
+      = link_to 'New experience', new_user_space_experience_path, :'data-turbolinks' => "false"

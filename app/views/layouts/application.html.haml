@@ -12,8 +12,7 @@
       = render 'layouts/navigation'
     %main.main{:role => "main"}
       = render 'layouts/messages'
-      .container
-        = yield
+      = yield
     %footer.footer
       .container.text-center
         = render 'layouts/footer'

@@ -24,11 +24,11 @@ class MediaController < ApplicationController
   # POST /media
   # POST /media.json
   def create
-    @medium = Medium.new(medium_params)
+    @medium = current_user.first.spaces.find(params[:space_id]).media.create(medium_params)
 
     respond_to do |format|
       if @medium.save
-        format.html { redirect_to @medium, notice: 'Medium was successfully created.' }
+        format.html { redirect_to user_space_media_path(current_user, @medium.space, @medium), notice: 'Medium was successfully created.' }
         format.json { render :show, status: :created, location: @medium }
       else
         format.html { render :new }
