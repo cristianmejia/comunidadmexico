@@ -25,6 +25,9 @@ class PollsController < ApplicationController
 
   # GET /polls/1/edit
   def edit
+    unless user_signed_in?
+      redirect_to root_url, :alert => "Acceso denegado"
+    end
   end
 
   # POST /polls

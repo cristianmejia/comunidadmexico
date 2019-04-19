@@ -14,11 +14,18 @@ class MediaController < ApplicationController
 
   # GET /media/new
   def new
-    @medium = Medium.new
+    unless user_signed_in?
+      redirect_to root_url, :alert => "Acceso denegado"
+    else
+      @medium = Medium.new
+    end
   end
 
   # GET /media/1/edit
   def edit
+    unless user_signed_in?
+      redirect_to root_url, :alert => "Acceso denegado"
+    end
   end
 
   # POST /media

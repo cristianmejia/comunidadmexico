@@ -14,11 +14,18 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    unless user_signed_in?
+      redirect_to root_url, :alert => "Acceso denegado"
+    else
+      @post = Post.new
+    end
   end
 
   # GET /posts/1/edit
   def edit
+    unless user_signed_in?
+      redirect_to root_url, :alert => "Acceso denegado"
+    end
   end
 
   # POST /posts
