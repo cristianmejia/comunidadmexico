@@ -2,12 +2,13 @@
   .container
     %h1.display-4=I18n.t(:title)
     %p.lead=I18n.t(:description)
-.container
-  .row
+.row.justify-content-md-center
+  .col-md-6.col-sm-12
     .section=render 'layouts/search_widget'
-  .row
-    .col-md-4.col-sm-12
-      %h3=I18n.t(:popular_spaces)
+.row
+  .col-md-4.col-sm-12
+    .container
+      %h2=I18n.t(:popular_spaces)
       %ul.list-group
         - if @popularSpaces then 
           - @popularSpaces.each do |ps|
@@ -16,8 +17,9 @@
               =link_to ps.title, user_space_path(ps.user, ps), :title => ps.title if ps.title? 
               .badge.badge-primary.badge-pill
                 = I18n.t(:votes, value: ps.votes_for.size)
-    .col-md-4.col-sm-12
-      %h3=I18n.t(:top_spaces)
+  .col-md-4.col-sm-12
+    .container
+      %h2=I18n.t(:top_spaces)
       %ul.list-group
         - if @topSpaces then 
           - @topSpaces.each do |s|
@@ -26,8 +28,9 @@
               =link_to s.title, user_space_path(s.user, s), :title => s.title if s.title?	
               .badge.badge-primary.badge-pill
                 = I18n.t(:votes, value: s.votes_for.size)
-    .col-md-4.col-sm-12
-      %h3=I18n.t(:spaces)
+  .col-md-4.col-sm-12
+    .container
+      %h2=I18n.t(:spaces)
       %ul.list-group
         - if  @allSpaces
           - @allSpaces.each do |a|
@@ -36,8 +39,9 @@
               =link_to a.title, user_space_path(a.user, a), :title => a.title if a.title? 
               .badge.badge-primary.badge-pill
                 = I18n.t(:votes, value: a.votes_for.size)
-  .row
-    .col-md-6.col-sm-12
+.row
+  .col-md-6.col-sm-12
+    .container
       %h3=I18n.t(:top_polls)
       %ol
         - if @topPolls
@@ -46,7 +50,8 @@
               =link_to p.name p.uid
               =I18n.t(:votes)
               = p.votes_for.size
-    .col-md-6.col-sm-12
+  .col-md-6.col-sm-12
+    .container
       %h3=I18n.t(:top_nominees)
       %ol
         - if @topNominees
@@ -55,21 +60,24 @@
               =link_to n.name n.uid
               =I18n.t(:votes)
               = n.votes_for.size
-  .row
-    .col-md-6.col-sm-12
+.row
+  .col-md-6.col-sm-12
+    .container
       %h3=I18n.t(:frequent_asked_questions)
       .tutorial
-        %h4=I18n.t(:how_to_participate)
-        %h4=I18n.t(:how_to_earn_badges)
-        %h4=I18n.t(:what_is_a_poll)
-  .row
-    .col-md-6.col-sm-12
-      %h3=I18n.t(:what_is_a_space)
+        %h5=I18n.t(:how_to_participate)
+        %h5=I18n.t(:how_to_earn_badges)
+        %h5=I18n.t(:what_is_a_poll)
+.row
+  .col-md-6.col-sm-12
+    .container
+      %h4=I18n.t(:what_is_a_space)
       %p
         = link_to 'Users:', users_path
         = User.count
         registered
-    .col-md-6.col-sm-12
+  .col-md-6.col-sm-12
+    .container
       %p
         - if user_signed_in?
           .nav-item= link_to I18n.t(:edit_account), edit_user_registration_path, :class => "nav-link"
