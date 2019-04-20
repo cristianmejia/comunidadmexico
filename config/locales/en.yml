@@ -44,3 +44,5 @@ en:
   what_is_a_poll: What is a poll?
   what_is_a_space: What is a space?
   search_in_the_community: Search in the community
+  visits: "%{value} visits"
+  go: "go"

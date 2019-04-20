@@ -1,91 +1,56 @@
 .jumbotron.jumbotron-fluid
   .container
     %h1.display-4=I18n.t(:title)
-    %p.lead=I18n.t(:description)
-.row.justify-content-md-center
+    %p.monospace=I18n.t(:description)
+.row.py-3.justify-content-md-center
   .col-md-6.col-sm-12
     .section=render 'layouts/search_widget'
-.row
-  .col-md-4.col-sm-12
-    .container
+- if @popularSpaces then
+  .row.py-3
+    .col-md-4.col-sm-12
       %h2=I18n.t(:popular_spaces)
-      %ul.list-group
-        - if @popularSpaces then 
-          - @popularSpaces.each do |ps|
-            %li.list-group-item
-              =link_to image_tag(s.avatar, :alt => ps.title), user_space_path(s.user, ps), :title => ps.title  if ps.avatar?
-              =link_to ps.title, user_space_path(ps.user, ps), :title => ps.title if ps.title? 
-              .badge.badge-primary.badge-pill
-                = I18n.t(:votes, value: ps.votes_for.size)
+  .row
+    - @popularSpaces.each do |ps|
+      .col-md-4.col-sm-12
+        .card
+          =link_to image_tag(s.avatar, :class => 'card-img-top', :alt => ps.title), user_space_path(s.user, ps), :title => ps.title  if ps.avatar?
+          .card-body
+            %h5.card-title
+              =ps.title if ps.title? 
+              .badge.badge-primary.badge-pill= I18n.t(:visits, value: ps.impressionist_count(:filter=>:session_hash))
+            %p.card-text=ps.description if ps.description? 
+            =link_to I18n.t(:go), user_space_path(ps.user, ps), :class => 'btn btn-primary float-right', :title => ps.title if ps.title?
+.row.my-3
   .col-md-4.col-sm-12
-    .container
-      %h2=I18n.t(:top_spaces)
-      %ul.list-group
-        - if @topSpaces then 
-          - @topSpaces.each do |s|
-            %li.list-group-item
-              =link_to image_tag(s.avatar, :alt => s.title), user_space_path(s.user, s), :title => s.title	if s.avatar?
-              =link_to s.title, user_space_path(s.user, s), :title => s.title if s.title?	
-              .badge.badge-primary.badge-pill
-                = I18n.t(:votes, value: s.votes_for.size)
+    %h4=I18n.t(:top_polls)
+    %ol.list-group.py-3
+      - if @topPolls
+        - @topNominees.each do |p|
+          %li.list-group-item
+            =link_to p.name p.uid
+            =I18n.t(:votes)
+            = p.votes_for.size
   .col-md-4.col-sm-12
-    .container
-      %h2=I18n.t(:spaces)
-      %ul.list-group
-        - if  @allSpaces
-          - @allSpaces.each do |a|
-            %li.list-group-item
-              =link_to image_tag(a.avatar, :alt => a.title), user_spaces_path(a), :title => a.title if a.avatar?
-              =link_to a.title, user_space_path(a.user, a), :title => a.title if a.title? 
-              .badge.badge-primary.badge-pill
-                = I18n.t(:votes, value: a.votes_for.size)
-.row
+    %h3=I18n.t(:top_spaces)
+    %ul.list-group.py-3
+      - if @topSpaces then 
+        - @topSpaces.each do |s|
+          %li.list-group-item
+            =link_to image_tag(s.avatar, :alt => s.title), user_space_path(s.user, s), :title => s.title  if s.avatar?
+            =link_to s.title, user_space_path(s.user, s), :title => s.title if s.title? 
+            .badge.badge-primary.badge-pill
+              = I18n.t(:votes, value: s.votes_for.size)
+  .col-md-4.col-sm-12
+    %h4=I18n.t(:frequent_asked_questions)
+    .tutorial.py-3
+      %h5=I18n.t(:how_to_participate)
+      %h5=I18n.t(:how_to_earn_badges)
+      %h5=I18n.t(:what_is_a_space)
+      %h5=I18n.t(:what_is_a_poll)
+.row.py-3
   .col-md-6.col-sm-12
     .container
-      %h3=I18n.t(:top_polls)
-      %ol
-        - if @topPolls
-          - @topNominees.each do |p|
-            %li.list-group-item
-              =link_to p.name p.uid
-              =I18n.t(:votes)
-              = p.votes_for.size
-  .col-md-6.col-sm-12
-    .container
-      %h3=I18n.t(:top_nominees)
-      %ol
-        - if @topNominees
-          - @topNominees.each do |n|
-            %li.list-group-item
-              =link_to n.name n.uid
-              =I18n.t(:votes)
-              = n.votes_for.size
-.row
-  .col-md-6.col-sm-12
-    .container
-      %h3=I18n.t(:frequent_asked_questions)
-      .tutorial
-        %h5=I18n.t(:how_to_participate)
-        %h5=I18n.t(:how_to_earn_badges)
-        %h5=I18n.t(:what_is_a_poll)
-.row
-  .col-md-6.col-sm-12
-    .container
-      %h4=I18n.t(:what_is_a_space)
       %p
         = link_to 'Users:', users_path
         = User.count
         registered
-  .col-md-6.col-sm-12
-    .container
-      %p
-        - if user_signed_in?
-          .nav-item= link_to I18n.t(:edit_account), edit_user_registration_path, :class => "nav-link"
-          .nav-item= link_to I18n.t(:sign_out), destroy_user_session_path, :method=>'delete', :class => "nav-link"
-        - else
-          .nav-item= link_to I18n.t(:sign_in), new_user_session_path, :class => "nav-link"
-          .nav-item= link_to I18n.t(:sign_up), new_user_registration_path, :class => "nav-link"
-        - if user_signed_in?
-          - if current_user.try(:admin?)
-            .nav-item= link_to I18n.t(:admin), '/admin', :class => "nav-link"
-            .nav-item= link_to I18n.t(:users), users_path, :class => "nav-link"
