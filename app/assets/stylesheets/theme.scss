@@ -120,3 +120,12 @@ body {
     }
   }
 }
+@for $i from 1 through 8 {
+  .truncate-text-#{$i} {
+    -webkit-line-clamp: $i;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+}
