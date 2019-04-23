@@ -1,10 +1,10 @@
-FactoryBot.define do
-  factory :medium do
-    title "MyString"
-    name "MyString"
-    description "MyText"
-    author "MyString"
-    url "MyString"
-    space nil
-  end
-end
+# FactoryBot.define do
+#   factory :medium do
+#     title "MyString"
+#     name "MyString"
+#     description "MyText"
+#     author "MyString"
+#     url "MyString"
+#     space nil
+#   end
+# end

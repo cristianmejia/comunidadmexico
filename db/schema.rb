@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329060040) do
+ActiveRecord::Schema.define(version: 2019_03_18_205819) do
 
   create_table "comments", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,33 @@ ActiveRecord::Schema.define(version: 20180329060040) do
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "provider"
+    t.string "consumer"
+    t.integer "experience_id"
+    t.datetime "started"
+    t.datetime "finished"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_events_on_experience_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.string "title"
+    t.string "name"
+    t.integer "space_id"
+    t.text "description"
+    t.text "content"
+    t.time "duration"
+    t.datetime "expiration"
+    t.string "gps"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_experiences_on_space_id"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -133,7 +160,6 @@ ActiveRecord::Schema.define(version: 20180329060040) do
     t.string "local"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "space_id"
     t.integer "user_id"
     t.integer "cached_votes_total", default: 0
     t.integer "cached_votes_score", default: 0
@@ -142,8 +168,7 @@ ActiveRecord::Schema.define(version: 20180329060040) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
-    t.integer "impressions_count"
-    t.index ["space_id"], name: "index_spaces_on_space_id"
+    t.integer "impressions_count", default: 0
     t.index ["user_id"], name: "index_spaces_on_user_id"
   end
 
