@@ -6,23 +6,19 @@
         - @experience.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  .field.md-form.form-group
     = f.label :title
     = f.text_field :title, :class => 'form-control'
-  .field
+  .field.md-form.form-group
     = f.label :name
     = f.text_field :name, :class => 'form-control'
-  .field
-    = f.label :space
-    = f.text_field :space, :class => 'form-control'
-    %input{:type => 'hidden', :value => @experience.space.id, :name => 'space_id'}
-  .field
+  .field.md-form.form-group
     = f.label :description
     = f.text_area :description
-  .field
+  .field.md-form.form-group
     = f.label :content
     = f.text_area :content
-  .field
+  .field.md-form.form-group
     = f.label :author
     = f.text_field :author, :class => 'form-control'
   .actions

@@ -46,6 +46,6 @@
         %b Author:
         = @experience.author
 
-      = link_to 'Edit', edit_user_space_experience_path(@experience), class: "btn btn-link"
+      = link_to 'Edit', edit_user_space_experience_path, class: "btn btn-link"
       \|
-      = link_to 'Back', user_space_path(@experience.space.user, @experience.space), class: "btn btn-link"
+      = link_to 'Back', user_space_experiences_path, class: "btn btn-link"

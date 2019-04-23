@@ -29,6 +29,10 @@
             %li.list-inline-item= link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'like_post btn btn-link'
           %li.list-inline-item= link_to 'Edit', edit_user_space_path(@space), :'data-turbolinks' => "false", class: 'btn btn-link'
         %li.list-inline-item= link_to 'Back', user_path(@space.user), class: 'btn btn-link'
+        %li.list-inline-item= link_to 'Polls', user_space_polls_path(@space.user, @space), class: 'btn btn-link'
+        %li.list-inline-item= link_to 'Media', user_space_media_path(@space.user, @space), class: 'btn btn-link'
+        %li.list-inline-item= link_to 'Experiences', user_space_experiences_path(@space.user, @space), class: 'btn btn-link'
+        %li.list-inline-item= link_to 'Posts', user_space_posts_path(@space.user, @space), class: 'btn btn-link'
   .row
     .col-md-12
       %table.table

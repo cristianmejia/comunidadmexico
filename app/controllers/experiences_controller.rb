@@ -38,7 +38,7 @@ class ExperiencesController < ApplicationController
 
     respond_to do |format|
       if @experience.save
-        format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
+        format.html { redirect_to user_space_experience_path(@experience.space.user, @experience.space, @experience), notice: 'Experience was successfully created.' }
         format.json { render :show, status: :created, location: @experience }
       else
         format.html { render :new }
