@@ -4,52 +4,31 @@
       %p#notice= notice
       %h1=@space.title
   .row
-    .col-md-12
-      %ul.list-inline
-        %li.list-inline-item
-          %p
-            %b= I18n.t(:views)
-            = ":"
-            = @space.impressionist_count
-        %li.list-inline-item
-          %p
-            %b= I18n.t(:visitors)
-            = ":"
-            = @space.impressionist_count(:filter=>:session_hash)
-        %li.list-inline-item
-          %p
-            %b{data: {action: 'votes'}}= I18n.t(:votes, :value => @space.votes_for.size)
-        %li.list-inline-item
-          %p
-            %b= I18n.t(:likes)
-            = ":"
-            = @space.get_upvotes.size
-        %li.list-inline-item
-          %p
-            %b= I18n.t(:dislikes)
-            = ":"
-            = @space.get_downvotes.size
-        %li.list-inline-item
-          = link_to @space.user.name, user_url(@space.user)
-  .row
-    - if @space.avatar.present?
-      .col-md-6.col-sm-12
-        = @space.avatar
-      .col-md-6.col-sm-12
-        %p
-          = @space.description
-    - else
-      .col-md-12.col-sm-12
-        %p
-          = @space.description
-  .row
-    .col-md-12
-      .relative-content
-        = @space.content.html_safe if @space.content?
-  .row
-    .col-md-12
-      %h2 Location
-      %h3= @space.local
+    .col-md-9.col-sm-12
+      = @space.avatar if @space.avatar?
+      = @space.description if @space.description?
+      .relative-content= @space.content.html_safe if @space.content?
+    .col-md-3.col-sm-12
+      %ul.list-group
+        %li.list-group-item
+          %h3= @space.local
+        %li.list-group-item
+          .badge.badge-primary.badge-pill= I18n.t(:views_count, value: @space.impressionist_count)
+          .badge.badge-primary.badge-pill= I18n.t(:visitors_count, value: @space.impressionist_count(:filter=>:session_hash))
+        %li.list-group-item
+          .badge.badge-primary.badge-pill= I18n.t(:likes_count, value: @space.get_upvotes.size)
+          .badge.badge-primary.badge-pill= I18n.t(:dislikes_count, value: @space.get_downvotes.size)
+          .badge.badge-primary.badge-pill= I18n.t(:votes_count, value: @space.votes_for.size)
+        %li.list-group-item
+          = link_to I18n.t(:published_by, value: @space.user.name), user_url(@space.user)
+      %ul.list-inline.my-3
+        - if current_user
+          - if current_user.first.liked? @space
+            %li.list-inline-item= link_to 'Unlike', unlike_user_space_path(@space), method: :put, remote: true, class: 'unlike_post btn btn-link'
+          - else
+            %li.list-inline-item= link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'like_post btn btn-link'
+          %li.list-inline-item= link_to 'Edit', edit_user_space_path(@space), :'data-turbolinks' => "false", class: 'btn btn-link'
+        %li.list-inline-item= link_to 'Back', user_path(@space.user), class: 'btn btn-link'
   .row
     .col-md-12
       %table.table
@@ -61,12 +40,3 @@
             - if current_user.try(:admin?)
               %td= link_to 'Edit', edit_space_path(poll), :'data-turbolinks' => "false"
               %td= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
-      - if current_user
-        - if current_user.first.liked? @space
-          = link_to 'Unlike', unlike_user_space_path(@space), method: :put, remote: true, class: 'unlike_post btn btn-link'
-        - else
-          = link_to 'Like', like_user_space_path(@space), method: :put, remote: true, class: 'like_post btn btn-link'
-        \|
-        = link_to 'Edit', edit_user_space_path(@space), :'data-turbolinks' => "false", class: 'btn btn-link'
-        \|
-      = link_to 'Back', user_path(@space.user), class: 'btn btn-link'

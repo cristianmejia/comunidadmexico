@@ -19,7 +19,7 @@
               =ps.title if ps.title?
             %strong=ps.local if ps.local?
             %label.badge.badge-primary.badge-pill= I18n.t(:visits, value: ps.impressionist_count(:filter=>:session_hash))
-            %p.card-text.truncate-text-5=truncate(ps.description, :length => 100, :omission => '...') if ps.description? 
+            %p.card-text.truncate-text-5=truncate(ps.description, :length => 300, :omission => '...') if ps.description? 
             =link_to I18n.t(:go), user_space_path(ps.user, ps), :class => 'btn btn-primary float-right', :title => ps.title if ps.title?
 .row.my-3.justify-content-md-center
   .col-md-4.col-sm-12
@@ -29,7 +29,7 @@
         - @topSpaces.each do |s|
           %li.list-group-item
             =link_to image_tag(s.avatar, :alt => s.title), user_space_path(s.user, s), :title => s.title  if s.avatar?
-            =link_to s.title, user_space_path(s.user, s), :title => s.title if s.title? 
+            =link_to s.title, user_space_path(s.user, s), :title => s.title if s.title?
             .badge.badge-primary.badge-pill
               = I18n.t(:votes, value: s.votes_for.size)
 .row.my-3

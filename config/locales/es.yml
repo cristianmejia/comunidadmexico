@@ -27,10 +27,17 @@ es:
   sign_out: Salir
   views: Vistas
   visitors: Visitantes
-  name: Nombre
-  email: Email
-  votes: "%{value} votos"
+  visits: Visitas
+  votes: Votos
   likes: Me gusta
   dislikes: No me gusta
-  visits: "%{value} visitas"
+  views_count: "%{value} vistas"
+  visitors_count: "%{value} visitantes"
+  visits_count: "%{value} visitas"
+  votes_count: "%{value} votos"
+  likes_count: "%{value} me gusta"
+  dislikes_count: "%{value} no me gusta"
+  published_by: "Publicado por %{value}"
+  name: Nombre
+  email: Email
   go: "ir"
