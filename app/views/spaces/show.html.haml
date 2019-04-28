@@ -20,7 +20,7 @@
           .badge.badge-primary.badge-pill= I18n.t(:dislikes_count, value: @space.get_downvotes.size)
           .badge.badge-primary.badge-pill= I18n.t(:votes_count, value: @space.votes_for.size)
         %li.list-group-item
-          = link_to I18n.t(:published_by, value: @space.user.name), user_url(@space.user)
+          = link_to I18n.t(:publisher_name, value: @space.user.name), user_url(@space.user)
       %ul.list-inline.my-3
         - if current_user
           - if current_user.first.liked? @space

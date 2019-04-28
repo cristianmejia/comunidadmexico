@@ -8,3 +8,5 @@
 	- if current_user.try(:admin?)
 		%li.nav-item= link_to I18n.t(:admin), '/admin', :class => "nav-link"
 		%li.nav-item= link_to I18n.t(:users), users_path, :class => "nav-link"
+%li.nav-item= link_to "English", { :locale => 'en' }, :class => "nav-link"
+%li.nav-item= link_to "Español", { :locale => 'es' }, :class => "nav-link"

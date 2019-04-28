@@ -42,7 +42,7 @@ $color1: rgba(252, 248, 255, 1);
 $color2: rgba(197, 195, 198, 1);
 $color3: rgba(70, 73, 76, 1);
 $color4: rgba(76, 92, 104, 1);
-$color5: rgba(142, 5, 197, 0.67);
+$color5: rgba(142, 5, 197, 0.67); // Rosa
 $color6: rgba(255,255,255,0.6);
 $color7: rgba(255,255,255,1);
 $color8: rgba(0,0,0,0.6);
@@ -56,35 +56,8 @@ body {
   font-size: 14px;
   line-height: 16px;
   margin: 0;
-  .header {
-    background-color: $color5;
-    button {
-      background-color: $color10;
-    }
-    a {
-      color:$color6;
-      &:hover, &:focus {
-      color:$color7;
-      }
-      &:visited, &:active {
-      color:$color7;
-      }
-    }
-    a.navbar-brand {
-      color:$color10;
-      padding-left: 8px;
-      &:hover, &:focus {
-      color:$color7;
-      }
-      &:visited, &:active {
-      color:$color7;
-      }
-    }
-  }
 }
-.main {
-  padding: 18px 0;
-}
+
 .footer {
   position: fixed;
   bottom: 0;
