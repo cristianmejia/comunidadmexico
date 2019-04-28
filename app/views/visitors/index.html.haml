@@ -18,10 +18,10 @@
             %h5.card-title
               =ps.title if ps.title?
             %strong=ps.local if ps.local?
-            %label.badge.badge-primary.badge-pill= I18n.t(:visits, value: ps.impressionist_count(:filter=>:session_hash))
+            %label.badge.badge-primary.badge-pill= I18n.t(:visitors_count, value: ps.impressionist_count(:filter=>:session_hash))
             %p.card-text.truncate-text-5=truncate(ps.description, :length => 300, :omission => '...') if ps.description?
-            =link_to I18n.t(:published_by, :value => truncate(ps.user.name, :length => 20, :omission => '...')), user_path(ps.user), :class => 'text-muted float-left', :title => ps.user.name if ps.user.name?
-            =link_to I18n.t(:go), user_space_path(ps.user, ps), :class => 'btn btn-primary float-right', :title => ps.title if ps.title?
+            =link_to I18n.t(:publisher_name, :value => truncate(ps.user.name, :length => 20, :omission => '...')), user_path(ps.user), :class => 'text-muted float-left', :title => ps.user.name if ps.user.name?
+            =link_to I18n.t(:see_space), user_space_path(ps.user, ps), :class => 'btn btn-primary float-right', :title => ps.title if ps.title?
 .row.my-3.justify-content-md-center
   .col-md-4.col-sm-12
     %h3=I18n.t(:top_spaces)
@@ -32,7 +32,7 @@
             =link_to image_tag(s.avatar, :alt => s.title), user_space_path(s.user, s), :title => s.title  if s.avatar?
             =link_to s.title, user_space_path(s.user, s), :title => s.title if s.title?
             .badge.badge-primary.badge-pill
-              = I18n.t(:votes, value: s.votes_for.size)
+              = I18n.t(:votes_count, value: s.votes_for.size)
 .row.my-3
   .col-md-4.col-sm-12
     %h4=I18n.t(:top_polls)

@@ -37,7 +37,8 @@ es:
   votes_count: "%{value} votos"
   likes_count: "%{value} me gusta"
   dislikes_count: "%{value} no me gusta"
-  published_by: "Publicado por %{value}"
+  publisher_name: "Publicado por %{value}"
   name: Nombre
   email: Email
   go: "ir"
+  see_space: "Ver espacio"
