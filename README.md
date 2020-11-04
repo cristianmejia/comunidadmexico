@@ -1,6 +1,6 @@
 Comunidadmexico
 ================
-Puedes encontrar respuestas y hacer preguntas conectándote con la comunidad _México_
+Puedes encontrar respuestas y hacer preguntas conectándote con la comunidad México
 
 Development
 -----------
